@@ -1,23 +1,18 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Waves, Cpu, Volume2, X } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { PRODUCTS } from '../constants';
-import { ProductCard, SectionHeader, MovingGraphic } from '../components/Shared';
+import { ProductCard, SectionHeader } from '../components/Shared';
 
 const Hero = () => {
-  const { scrollY } = useScroll();
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-
   return (
     <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
-      <MovingGraphic />
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "circOut" }}
-          style={{ opacity }}
         >
           <h1 className="text-6xl md:text-[110px] font-display font-bold leading-[0.85] tracking-tighter mb-8 uppercase">
             Mix Smarter. <br />
