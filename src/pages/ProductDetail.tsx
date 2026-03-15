@@ -120,78 +120,186 @@ export const ProductDetail = () => {
 
             {/* NoisyPlayer Custom Content */}
             {product.id === 'noisyplayer' && product.fullDetails && (
-              <div className="space-y-16 mb-16">
-                <div className="space-y-6">
-                  <h2 className="text-2xl font-display font-bold uppercase tracking-tight">{product.fullDetails.tagline}</h2>
-                  <p className="text-muted leading-relaxed">{product.fullDetails.about}</p>
-                </div>
+              <div className="space-y-32">
+                {/* 1. Header Area: Tagline, About, Price, Download */}
+                <div className="space-y-12">
+                  <div className="space-y-6">
+                    <h2 className="text-3xl md:text-4xl font-display font-bold uppercase tracking-tight leading-tight">{product.fullDetails.tagline}</h2>
+                    <p className="text-xl text-muted leading-relaxed max-w-3xl">{product.fullDetails.about}</p>
+                  </div>
 
-                <div className="p-8 bg-white/[0.02] border border-white/5 rounded-2xl space-y-4">
-                  <h3 className="text-xs font-mono tracking-[0.3em] text-white/40 uppercase">The Core Value</h3>
-                  <p className="text-sm text-muted leading-relaxed">{product.fullDetails.coreValue}</p>
-                </div>
-
-                <div className="space-y-8">
-                  <h3 className="text-xs font-mono tracking-[0.3em] text-muted uppercase">Key Features</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {product.fullDetails.features.map((f) => (
-                      <div key={f.title} className="space-y-2">
-                        <h4 className="text-sm font-bold text-white/90">{f.title}</h4>
-                        <p className="text-xs text-muted/70 leading-relaxed">{f.desc}</p>
-                      </div>
-                    ))}
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 py-10 border-y border-white/5">
+                    <div className="space-y-1">
+                      <span className="text-[10px] font-mono text-muted uppercase tracking-[0.2em] block">Current Version</span>
+                      <span className="text-4xl font-display font-bold tracking-tight">FREE</span>
+                    </div>
+                    <button
+                      onClick={handleCheckout}
+                      className="px-12 py-5 bg-white text-black rounded-full font-bold hover:scale-105 transition-all flex items-center gap-3 shadow-[0_0_30px_rgba(255,255,255,0.1)]"
+                    >
+                      <ShoppingBag size={20} />
+                      DOWNLOAD NOW
+                    </button>
                   </div>
                 </div>
 
-                <div className="space-y-8">
-                  <h3 className="text-xs font-mono tracking-[0.3em] text-muted uppercase">Technical Specifications</h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                    <div className="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
-                      <span className="block text-[10px] font-mono text-white/30 uppercase tracking-widest mb-1">Format</span>
-                      <span className="text-xs text-white/80">{product.fullDetails.specs.format}</span>
+                {/* 2. Core Value & Key Features Section (Grid) */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                  <div className="space-y-12">
+                    <div className="space-y-4">
+                      <h3 className="text-xs font-mono tracking-[0.3em] text-white/40 uppercase">The Logic</h3>
+                      <p className="text-lg text-muted leading-relaxed">{product.fullDetails.coreValue}</p>
                     </div>
-                    <div className="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
-                      <span className="block text-[10px] font-mono text-white/30 uppercase tracking-widest mb-1">Support</span>
-                      <span className="text-xs text-white/80">{product.fullDetails.specs.fileSupport}</span>
+
+                    <div className="space-y-8">
+                      <h3 className="text-xs font-mono tracking-[0.3em] text-muted uppercase">Key Capabilities</h3>
+                      <div className="grid grid-cols-1 gap-8">
+                        {product.fullDetails.features.slice(0, 4).map((f) => (
+                          <div key={f.title} className="flex gap-4">
+                            <div className="w-1 h-1 rounded-full bg-white/20 mt-2 shrink-0" />
+                            <div className="space-y-1">
+                              <h4 className="text-sm font-bold text-white/90">{f.title}</h4>
+                              <p className="text-xs text-muted/70 leading-relaxed">{f.desc}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                    <div className="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
-                      <span className="block text-[10px] font-mono text-white/30 uppercase tracking-widest mb-1">Workflow</span>
-                      <span className="text-xs text-white/80">{product.fullDetails.specs.workflow}</span>
+                  </div>
+
+                  <div className="sticky top-32">
+                    <div className="aspect-square rounded-3xl overflow-hidden border border-white/10 bg-black/50 backdrop-blur-3xl p-1">
+                      <video
+                        src="/videos/NoisyPlayer Core Value.mp4"
+                        controls
+                        autoPlay
+                        muted
+                        loop
+                        className="w-full h-full object-cover rounded-[22px]"
+                      />
+                    </div>
+                    <div className="mt-6 flex items-center justify-between px-2">
+                      <span className="text-[10px] font-mono text-white/30 uppercase tracking-widest">Core Value Demo</span>
+                      <span className="text-[10px] font-mono text-white/30 uppercase tracking-widest">0:12</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="space-y-8">
-                  <h3 className="text-xs font-mono tracking-[0.3em] text-muted uppercase text-center mb-12">How It Works</h3>
-                  <div className="grid grid-cols-1 gap-12">
-                    {product.fullDetails.steps.map((step, i) => (
-                      <div key={step.title} className="flex gap-8 items-start">
-                        <span className="text-4xl font-display font-bold text-white/10">{i + 1}</span>
-                        <div className="space-y-2">
-                          <h4 className="text-lg font-bold text-white/90">{step.title}</h4>
-                          <p className="text-sm text-muted/70 leading-relaxed">{step.desc}</p>
-                        </div>
+                {/* 3. How It Works (Staggered Layout) */}
+                <div className="space-y-40">
+                  <div className="text-center space-y-4">
+                    <h3 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-tight">Match any reference in 3 steps.</h3>
+                    <p className="text-muted font-mono text-xs tracking-widest uppercase">Intelligent Workflow Integration</p>
+                  </div>
+
+                  {/* Step 1: Text Left, Video Right */}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                    <div className="space-y-6">
+                      <span className="text-xs font-mono font-bold text-white/20 uppercase tracking-[0.5em]">Step 01</span>
+                      <h3 className="text-3xl font-display font-bold uppercase">{product.fullDetails.steps[0].title}</h3>
+                      <p className="text-lg text-muted leading-relaxed">{product.fullDetails.steps[0].desc}</p>
+                    </div>
+                    <div className="aspect-video rounded-2xl overflow-hidden border border-white/5 bg-white/[0.02] shadow-2xl">
+                      <video
+                        src="/videos/NoisyPlayer How It Works.mp4"
+                        controls
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Step 2: Video Left, Text Right */}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                    <div className="aspect-video rounded-2xl overflow-hidden border border-white/5 bg-white/[0.02] shadow-2xl lg:order-1 order-2">
+                      <video
+                        src="/videos/NoisyPlayer How It Works.mp4"
+                        controls
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="space-y-6 lg:order-2 order-1">
+                      <span className="text-xs font-mono font-bold text-white/20 uppercase tracking-[0.5em]">Step 02</span>
+                      <h3 className="text-3xl font-display font-bold uppercase">{product.fullDetails.steps[1].title}</h3>
+                      <p className="text-lg text-muted leading-relaxed">{product.fullDetails.steps[1].desc}</p>
+                    </div>
+                  </div>
+
+                  {/* Step 3: Text Left, Video Right */}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                    <div className="space-y-6">
+                      <span className="text-xs font-mono font-bold text-white/20 uppercase tracking-[0.5em]">Step 03</span>
+                      <h3 className="text-3xl font-display font-bold uppercase">{product.fullDetails.steps[2].title}</h3>
+                      <p className="text-lg text-muted leading-relaxed">{product.fullDetails.steps[2].desc}</p>
+                    </div>
+                    <div className="aspect-video rounded-2xl overflow-hidden border border-white/5 bg-white/[0.02] shadow-2xl">
+                      <video
+                        src="/videos/NoisyPlayer How It Works.mp4"
+                        controls
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* 4. Technical Specifications (Below How It Works) */}
+                <div className="space-y-16 py-32 border-t border-white/5">
+                  <div className="space-y-12">
+                    <h3 className="text-xs font-mono tracking-[0.3em] text-muted uppercase text-center">Technical Specifications</h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+                      <div className="p-8 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-white/[0.04] transition-colors">
+                        <span className="block text-[10px] font-mono text-white/30 uppercase tracking-widest mb-4">Format Compatibility</span>
+                        <span className="text-lg text-white/90 font-display font-bold uppercase">{product.fullDetails.specs.format}</span>
+                        <p className="text-xs text-muted mt-2">Compatible with major DAWs like Ableton, FL Studio, Logic Pro, and Reaper.</p>
                       </div>
-                    ))}
+                      <div className="p-8 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-white/[0.04] transition-colors">
+                        <span className="block text-[10px] font-mono text-white/30 uppercase tracking-widest mb-4">File Support</span>
+                        <span className="text-lg text-white/90 font-display font-bold uppercase">{product.fullDetails.specs.fileSupport}</span>
+                        <p className="text-xs text-muted mt-2">Supports high-fidelity lossless formats for accurate frequency analysis.</p>
+                      </div>
+                      <div className="p-8 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-white/[0.04] transition-colors">
+                        <span className="block text-[10px] font-mono text-white/30 uppercase tracking-widest mb-4">Optimized Workflow</span>
+                        <span className="text-lg text-white/90 font-display font-bold uppercase">Universal Match</span>
+                        <p className="text-xs text-muted mt-2">{product.fullDetails.specs.workflow}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 5. Final Download Button (Bottom) */}
+                  <div className="flex flex-col items-center gap-8 py-20 px-8 bg-gradient-to-b from-white/[0.02] to-transparent rounded-3xl border border-white/5">
+                    <div className="text-center space-y-4">
+                      <h3 className="text-3xl font-display font-bold uppercase tracking-tight">Experience surgical precision.</h3>
+                      <p className="text-muted font-mono text-[10px] uppercase tracking-[0.4em]">Zero Latency • Instant Analysis • Free Forever</p>
+                    </div>
+                    <button
+                      onClick={handleCheckout}
+                      className="px-16 py-7 bg-white text-black rounded-full font-bold text-xl hover:scale-105 hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] transition-all flex items-center gap-4 group"
+                    >
+                      <ShoppingBag size={24} className="group-hover:rotate-12 transition-transform" />
+                      DOWNLOAD NOISYPLAYER
+                    </button>
+                    <span className="text-[10px] font-mono text-white/20 uppercase">v1.0.0 Stable Build</span>
                   </div>
                 </div>
               </div>
             )}
 
-            <div className="flex flex-col gap-8 mb-12">
-              <div className="flex items-center justify-between py-6 border-y border-white/5">
-                <span className="text-3xl font-display font-bold tracking-tight">
-                  {isFree ? 'FREE' : `$${currentPrice}`}
-                </span>
-                <button
-                  onClick={handleCheckout}
-                  className="px-12 py-5 bg-white text-black rounded-full font-bold hover:scale-105 transition-transform flex items-center gap-3"
-                >
-                  <ShoppingBag size={20} />
-                  {isFree ? 'DOWNLOAD NOW' : 'ADD TO CART'}
-                </button>
+            {/* Default Checkout Section for other products */}
+            {product.id !== 'noisyplayer' && (
+              <div className="flex flex-col gap-8 mb-12">
+                <div className="flex items-center justify-between py-6 border-y border-white/5">
+                  <span className="text-3xl font-display font-bold tracking-tight">
+                    {isFree ? 'FREE' : `$${currentPrice}`}
+                  </span>
+                  <button
+                    onClick={handleCheckout}
+                    className="px-12 py-5 bg-white text-black rounded-full font-bold hover:scale-105 transition-transform flex items-center gap-3"
+                  >
+                    <ShoppingBag size={20} />
+                    {isFree ? 'DOWNLOAD NOW' : 'ADD TO CART'}
+                  </button>
+                </div>
               </div>
-            </div>
+            )}
 
             {product.type === 'beat' && (
               <div className="space-y-8 bg-white/[0.02] border border-white/5 p-8 rounded-2xl">
