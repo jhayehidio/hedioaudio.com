@@ -21,6 +21,14 @@ export interface Product {
   audioPreview?: string;
   youtubeId?: string;
   licenses?: License[];
+  fullDetails?: {
+    tagline: string;
+    about: string;
+    coreValue: string;
+    features: { title: string; desc: string }[];
+    specs: { format: string; fileSupport: string; workflow: string };
+    steps: { title: string; desc: string }[];
+  };
 }
 
 export const PRODUCTS: Product[] = productsData as Product[];

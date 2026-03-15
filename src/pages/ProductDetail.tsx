@@ -94,34 +94,86 @@ export const ProductDetail = () => {
               {product.description}
             </p>
 
-            {/* License Selection for Beats */}
+            {/* License List for Beats */}
             {product.type === 'beat' && product.licenses && (
               <div className="mb-12 space-y-4">
-                <h3 className="text-xs font-mono tracking-[0.3em] text-muted uppercase mb-4">Choose License</h3>
+                <h3 className="text-xs font-mono tracking-[0.3em] text-muted uppercase mb-4">Licenses</h3>
                 <div className="space-y-3">
                   {product.licenses.map((license) => (
-                    <button
+                    <div
                       key={license.name}
-                      onClick={() => setSelectedLicense(license)}
-                      className={`w-full p-4 rounded-xl border transition-all text-left flex items-start gap-4 ${selectedLicense?.name === license.name
-                        ? 'bg-white/10 border-white text-white'
-                        : 'bg-white/[0.02] border-white/5 text-muted hover:border-white/20'
-                        }`}
+                      className="w-full p-6 rounded-xl border border-white/5 bg-white/[0.02] text-left flex items-start gap-4 transition-colors hover:border-white/10"
                     >
-                      <div className={`mt-0.5 w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 ${selectedLicense?.name === license.name ? 'border-white' : 'border-muted/30'
-                        }`}>
-                        {selectedLicense?.name === license.name && <div className="w-2 h-2 bg-white rounded-full" />}
-                      </div>
                       <div className="flex-1">
                         <div className="flex justify-between items-center mb-1">
-                          <span className="font-bold uppercase tracking-tight">{license.name}</span>
-                          <span className="font-display font-bold text-lg">${license.price}</span>
+                          <span className="font-bold uppercase tracking-tight text-white/90">{license.name}</span>
+                          <span className="font-display font-bold text-xl text-white">${license.price}</span>
                         </div>
-                        <div className="text-xs font-mono mb-2 text-white/60">{license.features}</div>
+                        <div className="text-[10px] font-mono mb-3 text-white/40 uppercase tracking-widest">{license.features}</div>
                         <p className="text-xs text-muted/70 leading-relaxed font-light">{license.description}</p>
                       </div>
-                    </button>
+                    </div>
                   ))}
+                </div>
+              </div>
+            )}
+
+            {/* NoisyPlayer Custom Content */}
+            {product.id === 'noisyplayer' && product.fullDetails && (
+              <div className="space-y-16 mb-16">
+                <div className="space-y-6">
+                  <h2 className="text-2xl font-display font-bold uppercase tracking-tight">{product.fullDetails.tagline}</h2>
+                  <p className="text-muted leading-relaxed">{product.fullDetails.about}</p>
+                </div>
+
+                <div className="p-8 bg-white/[0.02] border border-white/5 rounded-2xl space-y-4">
+                  <h3 className="text-xs font-mono tracking-[0.3em] text-white/40 uppercase">The Core Value</h3>
+                  <p className="text-sm text-muted leading-relaxed">{product.fullDetails.coreValue}</p>
+                </div>
+
+                <div className="space-y-8">
+                  <h3 className="text-xs font-mono tracking-[0.3em] text-muted uppercase">Key Features</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {product.fullDetails.features.map((f) => (
+                      <div key={f.title} className="space-y-2">
+                        <h4 className="text-sm font-bold text-white/90">{f.title}</h4>
+                        <p className="text-xs text-muted/70 leading-relaxed">{f.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="space-y-8">
+                  <h3 className="text-xs font-mono tracking-[0.3em] text-muted uppercase">Technical Specifications</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div className="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+                      <span className="block text-[10px] font-mono text-white/30 uppercase tracking-widest mb-1">Format</span>
+                      <span className="text-xs text-white/80">{product.fullDetails.specs.format}</span>
+                    </div>
+                    <div className="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+                      <span className="block text-[10px] font-mono text-white/30 uppercase tracking-widest mb-1">Support</span>
+                      <span className="text-xs text-white/80">{product.fullDetails.specs.fileSupport}</span>
+                    </div>
+                    <div className="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+                      <span className="block text-[10px] font-mono text-white/30 uppercase tracking-widest mb-1">Workflow</span>
+                      <span className="text-xs text-white/80">{product.fullDetails.specs.workflow}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-8">
+                  <h3 className="text-xs font-mono tracking-[0.3em] text-muted uppercase text-center mb-12">How It Works</h3>
+                  <div className="grid grid-cols-1 gap-12">
+                    {product.fullDetails.steps.map((step, i) => (
+                      <div key={step.title} className="flex gap-8 items-start">
+                        <span className="text-4xl font-display font-bold text-white/10">{i + 1}</span>
+                        <div className="space-y-2">
+                          <h4 className="text-lg font-bold text-white/90">{step.title}</h4>
+                          <p className="text-sm text-muted/70 leading-relaxed">{step.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             )}
@@ -139,26 +191,9 @@ export const ProductDetail = () => {
                   {isFree ? 'DOWNLOAD NOW' : 'ADD TO CART'}
                 </button>
               </div>
-
-              {product.type === 'plugin' && (
-                <div className="grid grid-cols-3 gap-4">
-                  <div className="p-4 bg-white/[0.02] border border-white/5 rounded-xl text-center">
-                    <Cpu size={20} className="mx-auto mb-2 text-muted" />
-                    <span className="block text-[10px] font-mono text-muted uppercase tracking-widest">Low CPU</span>
-                  </div>
-                  <div className="p-4 bg-white/[0.02] border border-white/5 rounded-xl text-center">
-                    <Disc size={20} className="mx-auto mb-2 text-muted" />
-                    <span className="block text-[10px] font-mono text-muted uppercase tracking-widest">VST/AU/AAX</span>
-                  </div>
-                  <div className="p-4 bg-white/[0.02] border border-white/5 rounded-xl text-center">
-                    <Waves size={20} className="mx-auto mb-2 text-muted" />
-                    <span className="block text-[10px] font-mono text-muted uppercase tracking-widest">Zero Latency</span>
-                  </div>
-                </div>
-              )}
             </div>
 
-            {product.type === 'beat' ? (
+            {product.type === 'beat' && (
               <div className="space-y-8 bg-white/[0.02] border border-white/5 p-8 rounded-2xl">
                 <div className="space-y-2">
                   <h3 className="text-xs font-mono tracking-[0.3em] text-muted uppercase">License Terms</h3>
@@ -181,23 +216,6 @@ export const ProductDetail = () => {
                     </div>
                   ))}
                 </div>
-              </div>
-            ) : (
-              <div className="space-y-6">
-                <h3 className="text-xs font-mono tracking-[0.3em] text-muted uppercase">Key Features</h3>
-                <ul className="space-y-4">
-                  {[
-                    "Intelligent algorithm designed by industry experts",
-                    "Intuitive interface for rapid results",
-                    "Lifetime updates and dedicated support",
-                    "Royalty-free usage for all commercial projects"
-                  ].map((feature, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-muted/80">
-                      <CheckCircle2 size={16} className="text-white/20 mt-0.5" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
               </div>
             )}
           </motion.div>

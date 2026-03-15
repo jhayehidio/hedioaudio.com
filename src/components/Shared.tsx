@@ -48,13 +48,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 gap-3">
           <Link to={`/product/${product.id}`} className="w-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-[50ms]">
-            <button className="w-full py-3 bg-white text-black font-bold rounded-full text-[10px] tracking-widest uppercase hover:scale-[1.02] transition-all">
-              {product.type === 'beat' ? 'View Licenses' : 'Add to Cart'}
-            </button>
-          </Link>
-          <Link to={`/product/${product.id}`} className="w-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-[150ms]">
-            <button className="w-full py-3 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold rounded-full text-[10px] tracking-widest uppercase hover:bg-white/20 transition-colors">
-              {product.type === 'beat' ? 'Listen' : 'Learn More'}
+            <button className={`w-full py-3 font-bold rounded-full text-[10px] tracking-widest uppercase transition-all ${product.type === 'plugin' ? 'bg-white text-black' : 'bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black'
+              }`}>
+              {product.type === 'beat' ? 'View Licenses' : 'Learn More'}
             </button>
           </Link>
         </div>
@@ -89,7 +85,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           <h3 className="font-display font-bold text-lg tracking-tight uppercase">
             {product.name}
           </h3>
-          <span className="font-mono text-[10px] text-muted tracking-widest">${product.price}</span>
+          <span className="font-mono text-[10px] text-muted tracking-widest">
+            {product.type === 'beat' ? '$25' : `$${product.price}`}
+          </span>
         </div>
         <p className="text-muted text-xs leading-relaxed flex-grow">
           {product.description}

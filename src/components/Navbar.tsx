@@ -129,35 +129,25 @@ export const Navbar = () => {
             </button>
           </div>
 
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="relative p-2"
-          >
-            <ShoppingBag size={20} />
-            <span className="absolute -top-1 -right-1 w-4 h-4 bg-white text-black text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
-          </motion.button>
-          <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X /> : <Menu />}
+          <button className="md:hidden p-2 text-muted hover:text-white" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-bg border-b border-border overflow-hidden"
+            className="md:hidden bg-bg border-t border-white/5 overflow-hidden"
           >
-            <div className="flex flex-col p-6 gap-6">
-              <div className="flex flex-col gap-4">
-                <span className="text-[10px] font-mono text-muted tracking-widest">PRODUCTS</span>
-                <Link to="/plugins" className="text-sm font-mono tracking-widest text-white pl-4">PLUGINS</Link>
-                <Link to="/beats" className="text-sm font-mono tracking-widest text-white pl-4">BEATS</Link>
-              </div>
+            <div className="px-6 py-8 flex flex-col gap-6">
               {[
+                { name: 'PLUGINS', path: '/plugins' },
+                { name: 'BEATS', path: '/beats' },
                 { name: 'FREE', path: '/plugins?free=true' },
                 { name: 'ABOUT', path: '/about' },
                 { name: 'CONTACT', path: '/contact' }
@@ -165,7 +155,8 @@ export const Navbar = () => {
                 <Link
                   key={item.name}
                   to={item.path}
-                  className={`text-sm font-mono tracking-widest ${location.pathname === item.path ? 'text-white' : 'text-muted'}`}
+                  className={`text-[10px] font-mono tracking-[0.3em] uppercase transition-colors ${location.pathname === item.path ? 'text-white' : 'text-muted hover:text-white'
+                    }`}
                 >
                   {item.name}
                 </Link>

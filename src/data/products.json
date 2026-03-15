@@ -3,11 +3,61 @@
         "id": "noisyplayer",
         "name": "NoisyPlayer",
         "type": "plugin",
-        "description": "Essential noise generation and shaping tool for modern sound design.",
+        "description": "Turns reference tracks into shaped white noise for instant, surgical EQ matching without the wait.",
         "price": 0,
         "image": "/images/NoisyPlayer.png",
         "free": true,
-        "polarCheckoutUrl": "https://buy.polar.sh/polar_cl_qj9c2FVNuMyevw9RQPwr5Uvou2VrAQtsiHowf1MsrDW"
+        "polarCheckoutUrl": "https://buy.polar.sh/polar_cl_qj9c2FVNuMyevw9RQPwr5Uvou2VrAQtsiHowf1MsrDW",
+        "fullDetails": {
+            "tagline": "Surgical EQ Matching. Zero Wait Time.",
+            "about": "NoisyPlayer is a utility VSTi designed to eliminate the tedious \"loop and wait\" process of traditional EQ matching. By turning any reference track into a constant, steady stream of shaped white noise, you can capture perfect EQ profiles in seconds.",
+            "coreValue": "In a standard workflow, EQ matching requires you to play back a dynamic reference track while your analyzer \"learns\" the curve. NoisyPlayer replaces that dynamic signal with a static, perfectly sculpted carrier of white noise that matches the exact average frequency footprint of your reference.",
+            "features": [
+                {
+                    "title": "Multi-Format File Input",
+                    "desc": "Effortlessly drag and drop WAV, AIFF, or MP3 files into the UI to calculate a full-file average magnitude spectrum immediately."
+                },
+                {
+                    "title": "Shaped Noise Engine",
+                    "desc": "A high-quality white noise generator acts as a neutral carrier, sculpted by the analyzed reference footprint."
+                },
+                {
+                    "title": "Steady Signal Source",
+                    "desc": "Provides a predictable, constant output that allows EQ matching plugins to capture a profile instantly without waiting for peaks or quiet sections."
+                },
+                {
+                    "title": "Real-Time Visualization",
+                    "desc": "A built-in frequency analyzer shows you the exact curve of the shaped noise being generated."
+                },
+                {
+                    "title": "Flexible Triggering",
+                    "desc": "Start the signal via a dedicated Internal Play Toggle or trigger it via MIDI for precise control within your DAW."
+                },
+                {
+                    "title": "Output Management",
+                    "desc": "Integrated gain control allows you to manually adjust the volume of the resulting noise, ensuring it sits at the perfect level for your ears and your processing chain."
+                }
+            ],
+            "specs": {
+                "format": "VSTi (Virtual Instrument)",
+                "fileSupport": "WAV, AIFF, MP3",
+                "workflow": "Optimized for use with any EQ matching plugins."
+            },
+            "steps": [
+                {
+                    "title": "Drop Your Reference",
+                    "desc": "Drag any audio file (WAV, AIFF, or MP3) directly into the NoisyPlayer drop zone. The engine instantly analyzes the entire file to find its unique frequency \"fingerprint.\""
+                },
+                {
+                    "title": "Generate the Noise",
+                    "desc": "Toggle the Play button. The plugin instantly generates white noise that is filtered to match the exact spectral curve of your reference file."
+                },
+                {
+                    "title": "Instant Match",
+                    "desc": "Open your favorite EQ matching plugin on the same track. Because the noise is steady and constant, the EQ will capture the match profile immediately—no more looping the chorus and waiting for the analyzer to settle."
+                }
+            ]
+        }
     },
     {
         "id": "hb00001-glow",
@@ -16,6 +66,7 @@
         "description": "Synth Pop Type Beat, Taylor Swift Type Beat.",
         "image": "/images/HB00001 Glow.png",
         "category": "Synth Pop",
+        "price": 25,
         "youtubeId": "_whI41Rk9v4",
         "polarCheckoutUrl": "https://buy.polar.sh/polar_cl_nq6t7IM2W35STdiwHQvyKilNl7iGbfmO06teW3ikwIx",
         "licenses": [
