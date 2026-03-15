@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
-import { ChevronRight, Waves, Cpu, Volume2 } from 'lucide-react';
+import { Search, Waves, Cpu, Volume2, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PRODUCTS } from '../constants';
 import { ProductCard, SectionHeader, MovingGraphic } from '../components/Shared';
@@ -34,8 +34,15 @@ const Hero = () => {
 };
 
 export const Home = () => {
-  const [filter, setFilter] = useState<'all' | 'plugin' | 'beat'>('plugin');
-  const filteredProducts = PRODUCTS.filter(p => filter === 'all' || p.type === filter);
+  const [filter, setFilter] = useState<'all' | 'plugin' | 'beat'>('all');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredProducts = PRODUCTS.filter(p => {
+    const matchesFilter = filter === 'all' || p.type === filter;
+    const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesFilter && matchesSearch;
+  });
 
   return (
     <div className="pt-24">
@@ -43,38 +50,62 @@ export const Home = () => {
 
       {/* Shop Section Preview */}
       <section className="pb-24 max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
-          <div className="flex gap-4">
-            {['plugin', 'beat', 'all'].map((f) => (
-              <button
-                key={f}
-                onClick={() => setFilter(f as any)}
-                className={`px-6 py-2 rounded-full text-[10px] font-mono tracking-widest uppercase transition-all ${
-                  filter === f 
-                    ? 'bg-white text-black' 
-                    : 'border border-white/10 text-muted hover:border-white/30'
-                }`}
-              >
-                {f === 'all' ? 'ALL' : f + 'S'}
-              </button>
-            ))}
+        <div className="flex flex-col gap-12 mb-16">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 py-8 border-y border-white/5">
+            <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-6 py-3 max-w-md w-full focus-within:border-white/30 transition-all">
+              <Search size={18} className="text-muted" />
+              <input
+                type="text"
+                placeholder="Search products..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="bg-transparent border-none outline-none text-white text-sm w-full placeholder:text-muted/50 font-mono tracking-tight"
+              />
+              {searchQuery && (
+                <button onClick={() => setSearchQuery('')}>
+                  <X size={16} className="text-muted hover:text-white" />
+                </button>
+              )}
+            </div>
+
+            <div className="flex gap-4">
+              {['plugin', 'beat', 'all'].map((f) => (
+                <button
+                  key={f}
+                  onClick={() => setFilter(f as any)}
+                  className={`px-8 py-3 rounded-full text-[10px] font-mono tracking-widest uppercase transition-all ${filter === f
+                      ? 'bg-white text-black'
+                      : 'bg-white/5 border border-white/10 text-muted hover:border-white/20'
+                    }`}
+                >
+                  {f === 'all' ? 'ALL' : f + 'S'}
+                </button>
+              ))}
+            </div>
           </div>
-          
-          <div className="text-[10px] font-mono text-muted/40 uppercase tracking-widest">
-            {filteredProducts.length} items available
+
+          <div className="flex justify-between items-center text-[10px] font-mono text-muted/40 uppercase tracking-[0.3em]">
+            <span>{searchQuery ? `Search results for "${searchQuery}"` : 'Browse Collection'}</span>
+            <span>{filteredProducts.length} items found</span>
           </div>
         </div>
 
-        <motion.div 
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          <AnimatePresence mode='popLayout'>
-            {filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </AnimatePresence>
-        </motion.div>
+        {filteredProducts.length > 0 ? (
+          <motion.div
+            layout
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            <AnimatePresence mode='popLayout'>
+              {filteredProducts.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </AnimatePresence>
+          </motion.div>
+        ) : (
+          <div className="text-center py-24 border border-dashed border-white/10 rounded-3xl">
+            <p className="text-muted font-mono text-sm uppercase tracking-widest">No products found for this search.</p>
+          </div>
+        )}
       </section>
     </div>
   );
