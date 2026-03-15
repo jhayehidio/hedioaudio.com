@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { ShoppingBag, Menu, X, ChevronDown, Search } from 'lucide-react';
+import { ShoppingBag, Menu, X, ChevronDown, Search, Cpu, Disc } from 'lucide-react';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +54,7 @@ export const Navbar = () => {
             <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
               <div className="w-4 h-4 bg-black rounded-full animate-pulse" />
             </div>
-            <span className="font-display font-bold text-xl tracking-tighter">HEDIO AUDIO</span>
+            <span className="font-display font-bold text-xl tracking-tighter uppercase">HedioAudio</span>
           </motion.div>
         </Link>
 
@@ -65,10 +65,10 @@ export const Navbar = () => {
             <button className="text-xs font-mono tracking-widest text-muted hover:text-white transition-colors flex items-center gap-1">
               PRODUCTS <ChevronDown size={12} />
             </button>
-            <div className="absolute top-full left-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-              <div className="bg-bg border border-border p-4 rounded-xl min-w-[200px] backdrop-blur-xl shadow-2xl">
-                <Link to="/plugins" className="block text-[10px] font-mono tracking-widest text-muted hover:text-white py-2 transition-colors">PLUGINS</Link>
-                <Link to="/beats" className="block text-[10px] font-mono tracking-widest text-muted hover:text-white py-2 transition-colors">BEATS</Link>
+            <div className="absolute top-full left-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 -translate-x-4">
+              <div className="bg-black/40 border border-white/10 p-1.5 rounded-2xl min-w-[180px] backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                <Link to="/plugins" className="block px-6 py-4 rounded-xl hover:bg-white/5 transition-all text-[10px] font-mono tracking-[0.2em] text-white/90 hover:pl-8">PLUGINS</Link>
+                <Link to="/beats" className="block px-6 py-4 rounded-xl hover:bg-white/5 transition-all text-[10px] font-mono tracking-[0.2em] text-white/90 hover:pl-8 mt-1">BEATS</Link>
               </div>
             </div>
           </div>

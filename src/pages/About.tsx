@@ -13,22 +13,22 @@ export const About = () => {
             viewport={{ once: true }}
             className="relative aspect-square rounded-2xl overflow-hidden border border-border"
           >
-            <img 
-              src="https://picsum.photos/seed/studio/1000/1000" 
-              alt="Studio" 
+            <img
+              src="https://picsum.photos/seed/studio/1000/1000"
+              alt="Studio"
               className="w-full h-full object-cover opacity-60"
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-br from-black/60 to-transparent" />
           </motion.div>
-          
+
           <div>
-            <SectionHeader 
-              title="AUDIO TOOLS FOR CREATORS" 
-              subtitle="Our Philosophy" 
+            <SectionHeader
+              title="AUDIO TOOLS FOR CREATORS"
+              subtitle="Our Philosophy"
             />
             <p className="text-muted text-lg font-light leading-relaxed mb-8">
-              Hedio Audio is built on the idea that music production should be faster, easier, and more fun. We create smart plugins that eliminate the technical hurdles of production.
+              HedioAudio is built on the idea that music production should be faster, easier, and more fun. We create smart plugins that eliminate the technical hurdles of production.
             </p>
             <p className="text-muted text-lg font-light leading-relaxed mb-12">
               Our beats collection focuses on high-quality piano ballads and pop instrumentals, providing the perfect foundation for your next radio-ready hit.

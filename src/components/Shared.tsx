@@ -48,8 +48,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 gap-3">
           <Link to={`/product/${product.id}`} className="w-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-[50ms]">
-            <button className={`w-full py-3 font-bold rounded-full text-[10px] tracking-widest uppercase transition-all ${product.type === 'plugin' ? 'bg-white text-black' : 'bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black'
-              }`}>
+            <button className="w-full py-3 font-bold rounded-full text-[10px] tracking-widest uppercase transition-all bg-white text-black hover:scale-[1.02]">
               {product.type === 'beat' ? 'View Licenses' : 'Learn More'}
             </button>
           </Link>
@@ -97,25 +96,10 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   );
 };
 
-export const SectionHeader = ({ title, subtitle, id }: { title: string, subtitle: string, id?: string }) => (
-  <div id={id} className="mb-16">
-    <motion.div
-      initial={{ opacity: 0, x: -20 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      className="flex items-center gap-4 mb-4"
-    >
-      <div className="w-12 h-px bg-white/20" />
-      <span className="text-xs font-mono tracking-[0.3em] text-muted uppercase">{subtitle}</span>
-    </motion.div>
-    <motion.h2
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="text-5xl md:text-7xl font-display font-bold tracking-tighter"
-    >
-      {title}
-    </motion.h2>
+export const SectionHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
+  <div className="space-y-2">
+    <h2 className="text-4xl md:text-6xl font-display font-bold tracking-tighter uppercase">{title}</h2>
+    <p className="text-xs font-mono tracking-[0.4em] text-muted uppercase">{subtitle}</p>
   </div>
 );
 
