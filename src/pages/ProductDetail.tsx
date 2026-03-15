@@ -28,9 +28,9 @@ export const ProductDetail = () => {
             animate={{ opacity: 1, x: 0 }}
             className="aspect-square rounded-2xl overflow-hidden border border-white/5"
           >
-            <img 
-              src={product.image} 
-              alt={product.name} 
+            <img
+              src={product.image}
+              alt={product.name}
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
             />
@@ -63,9 +63,18 @@ export const ProductDetail = () => {
             <div className="flex flex-col gap-8 mb-12">
               <div className="flex items-center justify-between py-6 border-y border-white/5">
                 <span className="text-3xl font-display font-bold">${product.price}</span>
-                <button className="px-12 py-5 bg-white text-black rounded-full font-bold hover:scale-105 transition-transform flex items-center gap-3">
+                <button
+                  onClick={() => {
+                    if (product.polarCheckoutUrl) {
+                      window.location.href = product.polarCheckoutUrl;
+                    } else {
+                      alert("Checkout logic coming soon with Polar.sh integration!");
+                    }
+                  }}
+                  className="px-12 py-5 bg-white text-black rounded-full font-bold hover:scale-105 transition-transform flex items-center gap-3"
+                >
                   <ShoppingBag size={20} />
-                  ADD TO CART
+                  {product.free ? 'DOWNLOAD NOW' : 'ADD TO CART'}
                 </button>
               </div>
 

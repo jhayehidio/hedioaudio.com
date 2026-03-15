@@ -8,6 +8,7 @@ export interface Product {
   category?: string;
   audioPreview?: string;
   free?: boolean;
+  polarCheckoutUrl?: string;
 }
 
 export const PRODUCTS: Product[] = [
