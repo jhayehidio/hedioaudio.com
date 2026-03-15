@@ -7,10 +7,12 @@ export const Contact = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
           <div>
-            <SectionHeader 
-              title="GET IN TOUCH" 
-              subtitle="Support & Inquiries" 
-            />
+            <div className="mb-6">
+              <SectionHeader
+                title="GET IN TOUCH"
+                subtitle="Support & Inquiries"
+              />
+            </div>
             <p className="text-muted text-lg font-light leading-relaxed mb-12 max-w-md">
               Have questions about our plugins or need a custom license for a beat? Reach out and we'll get back to you within 24 hours.
             </p>

@@ -67,8 +67,8 @@ export const Navbar = () => {
             </button>
             <div className="absolute top-full left-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 -translate-x-4">
               <div className="bg-black/40 border border-white/10 p-1.5 rounded-2xl min-w-[180px] backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-                <Link to="/plugins" className="block px-6 py-4 rounded-xl hover:bg-white/5 transition-all text-[10px] font-mono tracking-[0.2em] text-white/90 hover:pl-8">PLUGINS</Link>
-                <Link to="/beats" className="block px-6 py-4 rounded-xl hover:bg-white/5 transition-all text-[10px] font-mono tracking-[0.2em] text-white/90 hover:pl-8 mt-1">BEATS</Link>
+                <Link to="/plugins" className="block px-6 py-4 rounded-xl hover:bg-white/5 transition-all text-[11px] font-mono tracking-widest text-white/90 hover:pl-8">PLUGINS</Link>
+                <Link to="/beats" className="block px-6 py-4 rounded-xl hover:bg-white/5 transition-all text-[11px] font-mono tracking-widest text-white/90 hover:pl-8 mt-1">BEATS</Link>
               </div>
             </div>
           </div>
@@ -155,7 +155,7 @@ export const Navbar = () => {
                 <Link
                   key={item.name}
                   to={item.path}
-                  className={`text-[10px] font-mono tracking-[0.3em] uppercase transition-colors ${location.pathname === item.path ? 'text-white' : 'text-muted hover:text-white'
+                  className={`text-[10px] font-mono tracking-widest uppercase transition-colors ${location.pathname === item.path ? 'text-white' : 'text-muted hover:text-white'
                     }`}
                 >
                   {item.name}

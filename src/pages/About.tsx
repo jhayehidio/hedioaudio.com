@@ -11,22 +11,24 @@ export const About = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="relative aspect-square rounded-2xl overflow-hidden border border-border"
+            className="relative aspect-square overflow-hidden"
           >
             <img
-              src="https://picsum.photos/seed/studio/1000/1000"
-              alt="Studio"
-              className="w-full h-full object-cover opacity-60"
+              src="/images/BIG LOGO.png"
+              alt="HedioAudio Logo"
+              className="w-full h-full object-contain p-12"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-black/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent" />
           </motion.div>
 
           <div>
-            <SectionHeader
-              title="AUDIO TOOLS FOR CREATORS"
-              subtitle="Our Philosophy"
-            />
+            <div className="mb-6">
+              <SectionHeader
+                title="AUDIO TOOLS FOR CREATORS"
+                subtitle="Our Philosophy"
+              />
+            </div>
             <p className="text-muted text-lg font-light leading-relaxed mb-8">
               HedioAudio is built on the idea that music production should be faster, easier, and more fun. We create smart plugins that eliminate the technical hurdles of production.
             </p>

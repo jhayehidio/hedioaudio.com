@@ -152,27 +152,27 @@ export const ProductDetail = () => {
                     </div>
                   )}
 
-                  <div className="space-y-8 bg-white/[0.02] border border-white/5 p-8 rounded-2xl">
-                    <div className="space-y-2">
-                      <h3 className="text-xs font-mono tracking-[0.3em] text-muted uppercase">License Terms</h3>
+                  <div className="space-y-4">
+                    <h3 className="text-xs font-mono tracking-[0.3em] text-muted uppercase mb-4">License Terms</h3>
+                    <div className="space-y-8 bg-white/[0.02] border border-white/5 p-8 rounded-2xl">
                       <p className="text-sm text-muted/80 leading-relaxed italic">
                         All purchases include a perpetual non-exclusive license and official license agreement.
                         The beat remains owned by <span className="text-white">hedio</span>, but you have full creative rights within your chosen tier.
                       </p>
-                    </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {[
-                        { label: "Credit", value: "Produced by hedio" },
-                        { label: "Delivery", value: "Instant download after purchase" },
-                        { label: "Usage", value: "Commercial rights included" },
-                        { label: "Validity", value: "License valid worldwide" }
-                      ].map((item) => (
-                        <div key={item.label} className="flex flex-col gap-1">
-                          <span className="text-[10px] font-mono text-white/30 uppercase tracking-widest">{item.label}</span>
-                          <span className="text-sm text-white/90">{item.value}</span>
-                        </div>
-                      ))}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                        {[
+                          { label: "Credit", value: "Produced by hedio" },
+                          { label: "Delivery", value: "Instant download after purchase" },
+                          { label: "Usage", value: "Commercial rights included" },
+                          { label: "Validity", value: "License valid worldwide" }
+                        ].map((item) => (
+                          <div key={item.label} className="flex flex-col gap-1">
+                            <span className="text-[10px] font-mono text-white/30 uppercase tracking-widest">{item.label}</span>
+                            <span className="text-sm text-white/90">{item.value}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -276,38 +276,39 @@ export const ProductDetail = () => {
                       </div>
                     ))}
                   </div>
+
+                  {/* Technical Specs moved here for Plugins */}
+                  {product.fullDetails.specs && (
+                    <div className="space-y-8 pt-16 border-t border-white/5">
+                      <h3 className="text-xs font-mono tracking-[0.3em] text-muted uppercase">Technical Specifications</h3>
+                      <div className="p-8 bg-white/[0.02] border border-white/5 rounded-2xl space-y-8">
+                        <div className="space-y-2">
+                          <span className="block text-[10px] font-mono text-white/30 uppercase tracking-widest">Format Compatibility</span>
+                          <span className="text-lg text-white/90 font-display font-bold">{product.fullDetails.specs.format}</span>
+                          <p className="text-xs text-muted">Compatible with Windows DAWs including Ableton, FL Studio, and Reaper.</p>
+                        </div>
+                        <div className="space-y-2 pt-8 border-t border-white/5">
+                          <span className="block text-[10px] font-mono text-white/30 uppercase tracking-widest">File Support</span>
+                          <span className="text-lg text-white/90 font-display font-bold">{product.fullDetails.specs.fileSupport}</span>
+                          <p className="text-xs text-muted">Supports high-fidelity lossless formats for accurate frequency analysis.</p>
+                        </div>
+                        <div className="space-y-2 pt-8 border-t border-white/5">
+                          <span className="block text-[10px] font-mono text-white/30 uppercase tracking-widest">Optimized Workflow</span>
+                          <span className="text-lg text-white/90 font-display font-bold">Universal Match</span>
+                          <p className="text-xs text-muted">{product.fullDetails.specs.workflow}</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
           )}
 
           {/* Technical Specifications & License Terms Footer */}
-          <div className="space-y-8 border-t border-white/5 pt-8">
-            {product.type === 'plugin' && product.fullDetails?.specs && (
-              <div className="space-y-12 pt-8">
-                <h3 className="text-xs font-mono tracking-[0.3em] text-muted uppercase text-center">Technical Specifications</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                  <div className="p-8 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-white/[0.04] transition-colors">
-                    <span className="block text-[10px] font-mono text-white/30 uppercase tracking-widest mb-4">Format Compatibility</span>
-                    <span className="text-lg text-white/90 font-display font-bold uppercase font-bold">{product.fullDetails.specs.format}</span>
-                    <p className="text-xs text-muted mt-2">Compatible with Windows DAWs including Ableton, FL Studio, and Reaper.</p>
-                  </div>
-                  <div className="p-8 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-white/[0.04] transition-colors">
-                    <span className="block text-[10px] font-mono text-white/30 uppercase tracking-widest mb-4">File Support</span>
-                    <span className="text-lg text-white/90 font-display font-bold uppercase font-bold">{product.fullDetails.specs.fileSupport}</span>
-                    <p className="text-xs text-muted mt-2">Supports high-fidelity lossless formats for accurate frequency analysis.</p>
-                  </div>
-                  <div className="p-8 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-white/[0.04] transition-colors">
-                    <span className="block text-[10px] font-mono text-white/30 uppercase tracking-widest mb-4">Optimized Workflow</span>
-                    <span className="text-lg text-white/90 font-display font-bold uppercase font-bold">Universal Match</span>
-                    <p className="text-xs text-muted mt-2">{product.fullDetails.specs.workflow}</p>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Final CTA */}
-            <div className="flex flex-col items-center gap-6 pt-12 pb-0 px-8 bg-gradient-to-b from-white/[0.02] to-transparent rounded-3xl border border-white/5">
+          <div className="space-y-4 border-t border-white/5 pt-12">
+            {/* Final CTA Area - Now Identical across all products */}
+            <div className="flex flex-col items-center gap-6 pt-10 pb-2 px-8 bg-gradient-to-b from-white/[0.02] to-transparent rounded-3xl border border-white/5">
               <div className="text-center space-y-3">
                 <h3 className="text-3xl font-display font-bold uppercase tracking-tight">
                   {product.type === 'beat' ? 'Start your next hit.' : 'Your matching helper.'}
@@ -323,7 +324,7 @@ export const ProductDetail = () => {
                 <ShoppingBag size={24} className="group-hover:rotate-12 transition-transform" />
                 {isFree ? 'DOWNLOAD NOW' : 'BUY / DOWNLOAD'}
               </button>
-              <span className="text-[10px] font-mono text-white/20 uppercase pb-4">
+              <span className="text-[10px] font-mono text-white/20 uppercase pb-6">
                 Official Licensed Release
               </span>
             </div>

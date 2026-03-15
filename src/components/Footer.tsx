@@ -11,7 +11,7 @@ export const Footer = () => (
             <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
               <div className="w-3 h-3 bg-black rounded-full" />
             </div>
-            <span className="font-display font-bold text-xl tracking-tighter">HedioAudio</span>
+            <span className="font-display font-bold text-xl tracking-tighter uppercase">HedioAudio</span>
           </div>
           <p className="text-muted max-w-sm mb-8 font-light leading-relaxed">
             Premium tools and beats for the modern creator.
