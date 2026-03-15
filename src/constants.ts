@@ -21,7 +21,7 @@ export const PRODUCTS: Product[] = [
     description: 'Turns reference tracks into shaped white noise for instant, surgical EQ matching without the wait.',
     image: '/images/NoisyPlayer.png',
     category: 'Surgical EQ',
-    polarCheckoutUrl: ''
+    polarCheckoutUrl: 'https://buy.polar.sh/polar_cl_qj9c2FVNuMyevw9RQPwr5Uvou2VrAQtsiHowf1MsrDW'
   },
   {
     id: 'beat-placeholder',
