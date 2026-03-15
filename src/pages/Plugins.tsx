@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Search, X } from 'lucide-react';
 import { PRODUCTS } from '../constants';
 import { ProductCard, SectionHeader } from '../components/Shared';
 
 export const Plugins = () => {
   const location = useLocation();
   const isFreeOnly = new URLSearchParams(location.search).get('free') === 'true';
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchParams] = useSearchParams();
+  const searchQuery = searchParams.get('search') || '';
 
   const plugins = PRODUCTS.filter(p =>
     p.type === 'plugin' &&
@@ -26,21 +26,11 @@ export const Plugins = () => {
             subtitle={isFreeOnly ? "Zero Cost, High Quality" : "Intelligent Audio Tools"}
           />
 
-          <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 w-64 focus-within:border-white/30 transition-all mb-4">
-            <Search size={14} className="text-muted" />
-            <input
-              type="text"
-              placeholder="Search plugins..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="bg-transparent border-none outline-none text-white text-[10px] w-full placeholder:text-muted/50 font-mono tracking-tight"
-            />
-            {searchQuery && (
-              <button onClick={() => setSearchQuery('')}>
-                <X size={12} className="text-muted hover:text-white" />
-              </button>
-            )}
-          </div>
+          {searchQuery && (
+            <div className="text-[10px] font-mono text-white/60 uppercase tracking-widest bg-white/5 px-4 py-2 rounded-full border border-white/10 mb-4">
+              Searching Plugins: <span className="text-white ml-2">{searchQuery}</span>
+            </div>
+          )}
         </div>
 
         {plugins.length > 0 ? (

@@ -158,22 +158,48 @@ export const ProductDetail = () => {
               )}
             </div>
 
-            <div className="space-y-6">
-              <h3 className="text-xs font-mono tracking-[0.3em] text-muted uppercase">Key Features</h3>
-              <ul className="space-y-4">
-                {[
-                  "Intelligent algorithm designed by industry experts",
-                  "Intuitive interface for rapid results",
-                  "Lifetime updates and dedicated support",
-                  "Royalty-free usage for all commercial projects"
-                ].map((feature, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-muted/80">
-                    <CheckCircle2 size={16} className="text-white/20 mt-0.5" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {product.type === 'beat' ? (
+              <div className="space-y-8 bg-white/[0.02] border border-white/5 p-8 rounded-2xl">
+                <div className="space-y-2">
+                  <h3 className="text-xs font-mono tracking-[0.3em] text-muted uppercase">License Terms</h3>
+                  <p className="text-sm text-muted/80 leading-relaxed italic">
+                    All purchases include a perpetual non-exclusive license and official license agreement.
+                    The beat remains owned by <span className="text-white">hedio</span>, but you have full creative rights within your chosen tier.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {[
+                    { label: "Credit", value: "Produced by hedio" },
+                    { label: "Delivery", value: "Instant download after purchase" },
+                    { label: "Usage", value: "Commercial rights included" },
+                    { label: "Validity", value: "License valid worldwide" }
+                  ].map((item) => (
+                    <div key={item.label} className="flex flex-col gap-1">
+                      <span className="text-[10px] font-mono text-white/30 uppercase tracking-widest">{item.label}</span>
+                      <span className="text-sm text-white/90">{item.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-6">
+                <h3 className="text-xs font-mono tracking-[0.3em] text-muted uppercase">Key Features</h3>
+                <ul className="space-y-4">
+                  {[
+                    "Intelligent algorithm designed by industry experts",
+                    "Intuitive interface for rapid results",
+                    "Lifetime updates and dedicated support",
+                    "Royalty-free usage for all commercial projects"
+                  ].map((feature, i) => (
+                    <li key={i} className="flex items-start gap-3 text-sm text-muted/80">
+                      <CheckCircle2 size={16} className="text-white/20 mt-0.5" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </motion.div>
         </div>
       </div>

@@ -17,7 +17,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   const togglePlay = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (!audioRef.current) return;
-    
+
     if (isPlaying) {
       audioRef.current.pause();
     } else {
@@ -45,11 +45,13 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           transition={{ duration: 0.8, ease: "circOut" }}
           className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
         />
-        
+
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 gap-3">
-          <button className="w-full py-3 bg-white text-black font-bold rounded-full text-[10px] tracking-widest uppercase transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-[50ms]">
-            Add to Cart
-          </button>
+          <Link to={`/product/${product.id}`} className="w-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-[50ms]">
+            <button className="w-full py-3 bg-white text-black font-bold rounded-full text-[10px] tracking-widest uppercase hover:scale-[1.02] transition-all">
+              {product.type === 'beat' ? 'View Licenses' : 'Add to Cart'}
+            </button>
+          </Link>
           <Link to={`/product/${product.id}`} className="w-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-[150ms]">
             <button className="w-full py-3 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold rounded-full text-[10px] tracking-widest uppercase hover:bg-white/20 transition-colors">
               {product.type === 'beat' ? 'Listen' : 'Learn More'}
@@ -67,9 +69,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             >
               {isPlaying ? <Pause size={14} /> : <Play size={14} className="ml-0.5" />}
             </motion.button>
-            <audio 
-              ref={audioRef} 
-              src={product.audioPreview} 
+            <audio
+              ref={audioRef}
+              src={product.audioPreview}
               onEnded={() => setIsPlaying(false)}
             />
           </div>
@@ -140,7 +142,7 @@ export const MovingGraphic = () => {
           filter: 'blur(100px)',
         }}
       />
-      
+
       {/* Blob 2 - Cyan */}
       <motion.div
         animate={{
@@ -181,7 +183,7 @@ export const MovingGraphic = () => {
 
       {/* Dark overlay to keep text readable */}
       <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
-      
+
       {/* Fade to black at top and bottom */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
     </div>

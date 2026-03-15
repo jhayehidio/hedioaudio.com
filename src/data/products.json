@@ -1,0 +1,54 @@
+[
+    {
+        "id": "noisyplayer",
+        "name": "NoisyPlayer",
+        "type": "plugin",
+        "description": "Essential noise generation and shaping tool for modern sound design.",
+        "price": 0,
+        "image": "/images/NoisyPlayer.png",
+        "free": true,
+        "polarCheckoutUrl": "https://buy.polar.sh/polar_cl_qj9c2FVNuMyevw9RQPwr5Uvou2VrAQtsiHowf1MsrDW"
+    },
+    {
+        "id": "hb00001-glow",
+        "name": "Glow",
+        "type": "beat",
+        "description": "Synth Pop Type Beat, Taylor Swift Type Beat.",
+        "image": "/images/HB00001 Glow.png",
+        "category": "Synth Pop",
+        "youtubeId": "_whI41Rk9v4",
+        "polarCheckoutUrl": "https://buy.polar.sh/polar_cl_nq6t7IM2W35STdiwHQvyKilNl7iGbfmO06teW3ikwIx",
+        "licenses": [
+            {
+                "name": "Basic License",
+                "price": 25,
+                "features": "MP3 File Only",
+                "description": "Perfect for indie artists starting out. Includes full rights for up to 100,000 streams and 10,000 sales/downloads, plus unlimited live performances."
+            },
+            {
+                "name": "Premium License",
+                "price": 50,
+                "features": "WAV + MP3 Files",
+                "description": "High-quality audio and flexible usage. Includes rights for up to 500,000 streams, 50,000 sales/downloads, and unlimited performances."
+            },
+            {
+                "name": "Premium Plus License",
+                "price": 100,
+                "features": "WAV + MP3 + STEMS",
+                "description": "Full production flexibility with stems for mixing and arrangement. Includes up to 1,000,000 streams, 100,000 sales/downloads, and unlimited performances."
+            },
+            {
+                "name": "Unlimited License",
+                "price": 150,
+                "features": "WAV + MP3 + STEMS",
+                "description": "Total freedom. Unlimited streams, sales, and performances worldwide. Keep your creative control forever."
+            },
+            {
+                "name": "Free Download",
+                "price": 0,
+                "features": "Non-Commercial Use Only",
+                "description": "For writing, practice, and demo recording. Not for streaming, release, or monetization. Upgrade to a paid license for full rights."
+            }
+        ]
+    }
+]
