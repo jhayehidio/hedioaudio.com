@@ -112,11 +112,13 @@ export const ProductDetail = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 py-10 border-y border-white/5">
-                <div className="space-y-1">
-                  <span className="text-4xl font-display font-bold tracking-tight">
-                    {isFree ? 'FREE' : `$${currentPrice}`}
-                  </span>
-                </div>
+                {product.type !== 'beat' && (
+                  <div className="space-y-1">
+                    <span className="text-4xl font-display font-bold tracking-tight">
+                      {isFree ? 'FREE' : `$${currentPrice}`}
+                    </span>
+                  </div>
+                )}
                 <button
                   onClick={handleCheckout}
                   className="px-12 py-5 bg-white text-black rounded-full font-bold hover:scale-105 transition-all flex items-center gap-3 shadow-[0_0_30px_rgba(255,255,255,0.1)]"
