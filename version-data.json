@@ -1,0 +1,7 @@
+{
+  "boundary-eq": {
+    "version": "1.0.0",
+    "download_url": "https://hedioaudio.com/downloads/boundary-eq",
+    "release_notes": "Initial release of BoundaryEQ Pro\n- Professional EQ with ARA support\n- FabFilter-level UI smoothness\n- Advanced spectral analysis"
+  }
+}

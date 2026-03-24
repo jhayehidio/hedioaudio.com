@@ -17,9 +17,10 @@ export interface Product {
   image: string;
   category?: string;
   free?: boolean;
-  polarCheckoutUrl?: string;
+  lemonSqueezyUrl?: string;
   audioPreview?: string;
   youtubeId?: string;
+  createdAt?: string;
   licenses?: License[];
   fullDetails?: {
     tagline: string;

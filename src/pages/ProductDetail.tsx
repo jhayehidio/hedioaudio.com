@@ -22,10 +22,14 @@ export const ProductDetail = () => {
 
   const handleCheckout = () => {
     // Priority: 1. License-specific URL, 2. Product-level URL
-    const url = (selectedLicense && selectedLicense.checkoutUrl) ? selectedLicense.checkoutUrl : product.polarCheckoutUrl;
+    const url = (selectedLicense && selectedLicense.checkoutUrl) ? selectedLicense.checkoutUrl : product.lemonSqueezyUrl;
 
     if (url) {
-      window.location.href = url;
+      if ((window as any).LemonSqueezy) {
+        (window as any).LemonSqueezy.Url.Open(url);
+      } else {
+        window.open(url, '_blank');
+      }
     } else {
       alert("Checkout link not set for this product yet.");
     }
@@ -121,7 +125,7 @@ export const ProductDetail = () => {
                 )}
                 <button
                   onClick={handleCheckout}
-                  className="px-12 py-5 bg-white text-black rounded-full font-bold hover:scale-105 transition-all flex items-center gap-3 shadow-[0_0_30px_rgba(255,255,255,0.1)]"
+                  className="px-12 py-5 bg-white text-black rounded-full font-bold hover:scale-105 transition-all flex items-center gap-3 shadow-[0_0_30px_rgba(255,255,255,0.1)] lemonsqueezy-button"
                 >
                   <ShoppingBag size={20} />
                   {isFree ? 'DOWNLOAD NOW' : 'BUY / DOWNLOAD'}
@@ -321,7 +325,7 @@ export const ProductDetail = () => {
               </div>
               <button
                 onClick={handleCheckout}
-                className="px-16 py-7 bg-white text-black rounded-full font-bold text-xl hover:scale-105 hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] transition-all flex items-center gap-4 group"
+                className="px-16 py-7 bg-white text-black rounded-full font-bold text-xl hover:scale-105 hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] transition-all flex items-center gap-4 group lemonsqueezy-button"
               >
                 <ShoppingBag size={24} className="group-hover:rotate-12 transition-transform" />
                 {isFree ? 'DOWNLOAD NOW' : 'BUY / DOWNLOAD'}

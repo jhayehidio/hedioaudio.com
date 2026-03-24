@@ -12,7 +12,7 @@ export const Beats = () => {
     p.type === 'beat' &&
     (p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       p.description.toLowerCase().includes(searchQuery.toLowerCase()))
-  );
+  ).sort((a, b) => new Date(b.createdAt || 0).getTime() - new Date(a.createdAt || 0).getTime());
 
   return (
     <div className="pt-40 pb-32">

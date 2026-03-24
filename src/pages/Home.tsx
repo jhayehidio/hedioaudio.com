@@ -22,6 +22,20 @@ const Hero = () => {
             Intelligent audio tools to speed up your workflow. <br className="hidden md:block" />
             Radio-ready beats for your next hit.
           </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 mb-4">
+            <Link
+              to="/plugins"
+              className="px-10 py-4 bg-white text-black rounded-full font-bold text-xs tracking-widest hover:scale-105 transition-all"
+            >
+              EXPLORE PLUGINS
+            </Link>
+            <Link
+              to="/beats"
+              className="px-10 py-4 bg-white/5 border border-white/10 text-white rounded-full font-bold text-xs tracking-widest hover:bg-white/10 transition-all"
+            >
+              CHECK BEATS
+            </Link>
+          </div>
         </motion.div>
       </div>
     </section>
@@ -29,15 +43,28 @@ const Hero = () => {
 };
 
 export const Home = () => {
-  const [filter, setFilter] = useState<'all' | 'plugin' | 'beat'>('all');
   const [searchParams] = useSearchParams();
   const searchQuery = searchParams.get('search') || '';
 
   const filteredProducts = PRODUCTS.filter(p => {
-    const matchesFilter = filter === 'all' || p.type === filter;
     const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       p.description.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesFilter && matchesSearch;
+    return matchesSearch;
+  }).sort((a, b) => {
+    // 1. Sort by type (Plugins first)
+    if (a.type !== b.type) {
+      return a.type === 'plugin' ? -1 : 1;
+    }
+
+    // 2. Both are Plugins: Sort by Price (Descending)
+    if (a.type === 'plugin') {
+      return b.price - a.price;
+    }
+
+    // 3. Both are Beats: Sort by Date Uploaded (Descending)
+    const dateA = new Date(a.createdAt || 0).getTime();
+    const bDateB = new Date(b.createdAt || 0).getTime();
+    return bDateB - dateA;
   });
 
   return (
@@ -46,29 +73,14 @@ export const Home = () => {
 
       {/* Shop Section Preview */}
       <section className="pb-24 max-w-7xl mx-auto px-6">
-        <div className="flex flex-col gap-12 mb-16">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 py-8 border-y border-white/5">
-            <div className="flex gap-4">
-              {['plugin', 'beat', 'all'].map((f) => (
-                <button
-                  key={f}
-                  onClick={() => setFilter(f as any)}
-                  className={`px-8 py-3 rounded-full text-[10px] font-mono tracking-widest uppercase transition-all ${filter === f
-                    ? 'bg-white text-black'
-                    : 'bg-white/5 border border-white/10 text-muted hover:border-white/20'
-                    }`}
-                >
-                  {f === 'all' ? 'ALL' : f + 'S'}
-                </button>
-              ))}
-            </div>
-
-            {searchQuery && (
+        <div className="flex flex-col gap-12 mb-16 pt-24 border-t border-white/5">
+          {searchQuery && (
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 py-8 border-b border-white/5">
               <div className="text-[10px] font-mono text-white/60 uppercase tracking-widest bg-white/5 px-4 py-2 rounded-full border border-white/10">
                 Searching: <span className="text-white ml-2">{searchQuery}</span>
               </div>
-            )}
-          </div>
+            </div>
+          )}
 
           <div className="flex justify-between items-center text-[10px] font-mono text-muted/40 uppercase tracking-[0.3em]">
             <span>{searchQuery ? `Results for "${searchQuery}"` : 'Browse Collection'}</span>

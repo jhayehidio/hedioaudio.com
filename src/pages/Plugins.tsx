@@ -15,7 +15,7 @@ export const Plugins = () => {
     (!isFreeOnly || p.free) &&
     (p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       p.description.toLowerCase().includes(searchQuery.toLowerCase()))
-  );
+  ).sort((a, b) => b.price - a.price);
 
   return (
     <div className="pt-40 pb-32">

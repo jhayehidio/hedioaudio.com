@@ -7,7 +7,8 @@
         "price": 0,
         "image": "/images/NoisyPlayer.png",
         "free": true,
-        "polarCheckoutUrl": "https://buy.polar.sh/polar_cl_qj9c2FVNuMyevw9RQPwr5Uvou2VrAQtsiHowf1MsrDW",
+        "lemonSqueezyUrl": "https://hedioaudio.lemonsqueezy.com/checkout/buy/54737ed0-a24a-4dad-8e7a-610351b3f4df?embed=1&discount=0",
+        "createdAt": "2026-03-01T00:00:00Z",
         "fullDetails": {
             "tagline": "Surgical EQ Matching. Zero Wait Time.",
             "about": "NoisyPlayer is a utility VSTi designed to eliminate the tedious \"loop and wait\" process of traditional EQ matching. By turning any reference track into a constant, steady stream of shaped white noise, you can capture perfect EQ profiles in seconds.",
@@ -68,7 +69,8 @@
         "category": "Synth Pop",
         "price": 25,
         "youtubeId": "_whI41Rk9v4",
-        "polarCheckoutUrl": "https://buy.polar.sh/polar_cl_nq6t7IM2W35STdiwHQvyKilNl7iGbfmO06teW3ikwIx",
+        "lemonSqueezyUrl": "https://hedioaudio.lemonsqueezy.com/checkout/buy/479bc737-eb3b-47b2-8ae2-b6de69dac4ea?embed=1",
+        "createdAt": "2026-03-15T00:00:00Z",
         "licenses": [
             {
                 "name": "Basic License",

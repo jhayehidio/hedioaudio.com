@@ -60,19 +60,9 @@ export const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-12">
-          {/* ... existing links (Keeping them for context but focus on search) */}
-          <div className="relative group">
-            <button className="text-xs font-mono tracking-widest text-muted hover:text-white transition-colors flex items-center gap-1">
-              PRODUCTS <ChevronDown size={12} />
-            </button>
-            <div className="absolute top-full left-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 -translate-x-4">
-              <div className="bg-black/40 border border-white/10 p-1.5 rounded-2xl min-w-[180px] backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-                <Link to="/plugins" className="block px-6 py-4 rounded-xl hover:bg-white/5 transition-all text-[11px] font-mono tracking-widest text-white/90 hover:pl-8">PLUGINS</Link>
-                <Link to="/beats" className="block px-6 py-4 rounded-xl hover:bg-white/5 transition-all text-[11px] font-mono tracking-widest text-white/90 hover:pl-8 mt-1">BEATS</Link>
-              </div>
-            </div>
-          </div>
           {[
+            { name: 'PLUGINS', path: '/plugins' },
+            { name: 'BEATS', path: '/beats' },
             { name: 'FREE', path: '/plugins?free=true' },
             { name: 'ABOUT', path: '/about' },
             { name: 'CONTACT', path: '/contact' }
