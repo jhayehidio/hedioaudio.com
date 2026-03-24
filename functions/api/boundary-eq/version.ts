@@ -1,9 +1,9 @@
 export async function onRequest(context) {
   // Version data - you can update this when releasing new versions
   const versionData = {
-    version: "1.1.0",
+    version: "1.0.2",
     download_url: "https://app.lemonsqueezy.com/my-orders",
-    "release_notes": "BoundaryEQ v1.1.0 - New Features\n- Improved licensing system\n- Enhanced UI performance\n- Bug fixes and stability improvements"
+    "release_notes": "BoundaryEQ v1.0.2 - Bug Fixes\n- Fixed licensing activation issues\n- Improved update notification UI\n- Minor performance improvements"
   };
 
   // Set CORS headers
