@@ -1,9 +1,9 @@
 export async function onRequest(context) {
   // Version data - you can update this when releasing new versions
   const versionData = {
-    version: "1.0.0",
+    version: "1.1.0",
     download_url: "https://hedioaudio.com/downloads/boundary-eq",
-    "release_notes": "Initial release of BoundaryEQ Pro\n- Linear Phase Equalization Engine\n- ARA 2 support for deep DAW integration\n- AI-driven spectral matching\n- Ultra-smooth vector-based UI"
+    "release_notes": "BoundaryEQ v1.1.0 - New Features\n- Improved licensing system\n- Enhanced UI performance\n- Bug fixes and stability improvements"
   };
 
   // Set CORS headers
