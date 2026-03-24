@@ -1,5 +1,54 @@
 [
     {
+        "id": "boundary-eq",
+        "name": "BoundaryEQ",
+        "type": "plugin",
+        "description": "Professional linear-phase EQ with advanced spectral matching and zero-latency processing.",
+        "price": 49,
+        "image": "/images/BoundaryEQ.png",
+        "free": false,
+        "lemonSqueezyUrl": "https://hedioaudio.lemonsqueezy.com/checkout/buy/BOUNDARY_EQ_DRAFT_URL",
+        "createdAt": "2026-03-24T00:00:00Z",
+        "fullDetails": {
+            "tagline": "The Last EQ You'll Ever Need.",
+            "about": "BoundaryEQ is a high-performance linear-phase equalizer designed for surgical precision and musical transparency. With advanced ARA support and a fluid vector-based UI, it brings professional-grade processing to your DAW.",
+            "coreValue": "Built for speed and accuracy, BoundaryEQ features a state-of-the-art spectral analysis engine that allows for instant visual feedback and precise frequency manipulation.",
+            "features": [
+                {
+                    "title": "ARA 2 Support",
+                    "desc": "Deep integration with modern DAWs for seamless audio editing and frequency analysis without the need for real-time playback."
+                },
+                {
+                    "title": "Linear Phase Engine",
+                    "desc": "Crystal clear frequency adjustments without any phase shift or pre-ringing artifacts."
+                },
+                {
+                    "title": "Smart Matching",
+                    "desc": "Instantly match the frequency curve of any reference track with the built-in matching algorithm."
+                }
+            ],
+            "specs": {
+                "format": "VST3, AU, AAX",
+                "fileSupport": "Up to 384kHz Sample Rate",
+                "workflow": "Optimized for M1/M2 Mac and Windows 11."
+            },
+            "steps": [
+                {
+                    "title": "Analyze",
+                    "desc": "Drop the plugin on your track. BoundaryEQ immediately starts mapping the frequency spectrum in real-time."
+                },
+                {
+                    "title": "Sculpt",
+                    "desc": "Use the fluid multiband interface to apply surgical cuts or musical boosts with zero phase distortion."
+                },
+                {
+                    "title": "Apply",
+                    "desc": "Lock in your settings and enjoy professional-grade clarity across the entire frequency range."
+                }
+            ]
+        }
+    },
+    {
         "id": "noisyplayer",
         "name": "NoisyPlayer",
         "type": "plugin",
