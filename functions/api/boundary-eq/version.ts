@@ -2,7 +2,7 @@ export async function onRequest(context) {
   // Version data - you can update this when releasing new versions
   const versionData = {
     version: "1.1.0",
-    download_url: "https://hedioaudio.com/downloads/boundary-eq",
+    download_url: "https://app.lemonsqueezy.com/my-orders",
     "release_notes": "BoundaryEQ v1.1.0 - New Features\n- Improved licensing system\n- Enhanced UI performance\n- Bug fixes and stability improvements"
   };
 
