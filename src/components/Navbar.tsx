@@ -93,12 +93,12 @@ export const Navbar = () => {
                   animate={{ width: 240, opacity: 1 }}
                   exit={{ width: 0, opacity: 0 }}
                   onSubmit={handleSearch}
-                  className="absolute right-full mr-2 hidden md:flex items-center bg-white/5 border border-white/20 rounded-full px-4 py-2 overflow-hidden"
+                  className="absolute right-full mr-2 flex items-center bg-white/5 border border-white/20 rounded-full px-4 py-2 overflow-hidden"
                 >
                   <input
                     autoFocus
                     type="text"
-                    placeholder="Search..."
+                    placeholder="Search tools..."
                     value={searchValue}
                     onChange={(e) => setSearchValue(e.target.value)}
                     className="bg-transparent border-none outline-none text-xs text-white w-full placeholder:text-muted/50 font-mono"
@@ -133,22 +133,38 @@ export const Navbar = () => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-bg border-t border-white/5 overflow-hidden"
           >
-            <div className="px-6 py-8 flex flex-col gap-6">
-              {[
-                { name: 'PLUGINS', path: '/plugins' },
-                { name: 'FREE', path: '/plugins?free=true' },
-                { name: 'ABOUT', path: '/about' },
-                { name: 'CONTACT', path: '/contact' }
-              ].map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  className={`text-[10px] font-mono tracking-widest uppercase transition-colors ${location.pathname === item.path ? 'text-white' : 'text-muted hover:text-white'
-                    }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
+            <div className="px-6 py-8 flex flex-col gap-8">
+              {/* Mobile Search Input */}
+              <form onSubmit={handleSearch} className="flex items-center bg-white/5 border border-white/10 rounded-full px-4 py-3">
+                <input
+                  type="text"
+                  placeholder="SEARCH TOOLS..."
+                  value={searchValue}
+                  onChange={(e) => setSearchValue(e.target.value)}
+                  className="bg-transparent border-none outline-none text-[10px] font-mono tracking-widest text-white w-full placeholder:text-muted/30"
+                />
+                <button type="submit" className="text-muted">
+                  <Search size={16} />
+                </button>
+              </form>
+
+              <div className="flex flex-col gap-6">
+                {[
+                  { name: 'PLUGINS', path: '/plugins' },
+                  { name: 'FREE', path: '/plugins?free=true' },
+                  { name: 'ABOUT', path: '/about' },
+                  { name: 'CONTACT', path: '/contact' }
+                ].map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    className={`text-[10px] font-mono tracking-widest uppercase transition-colors ${location.pathname === item.path ? 'text-white' : 'text-muted hover:text-white'
+                      }`}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
             </div>
           </motion.div>
         )}
