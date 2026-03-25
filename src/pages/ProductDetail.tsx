@@ -92,13 +92,8 @@ export const ProductDetail = () => {
             >
               <div className="flex items-center gap-4">
                 <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-mono tracking-widest uppercase text-muted">
-                  {product.type}
+                  {product.category || product.type}
                 </span>
-                {product.category && (
-                  <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-mono tracking-widest uppercase text-muted">
-                    {product.category}
-                  </span>
-                )}
               </div>
 
               <div className="space-y-6">
@@ -121,13 +116,24 @@ export const ProductDetail = () => {
                     {isFree ? 'FREE' : `$${currentPrice}`}
                   </span>
                 </div>
-                <button
-                  onClick={handleCheckout}
-                  className="px-12 py-5 bg-white text-black rounded-full font-bold hover:scale-105 transition-all flex items-center gap-3 shadow-[0_0_30px_rgba(255,255,255,0.1)] lemonsqueezy-button"
-                >
-                  <ShoppingBag size={20} />
-                  {isFree ? 'DOWNLOAD NOW' : 'BUY / DOWNLOAD'}
-                </button>
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
+                  <button
+                    onClick={handleCheckout}
+                    className="px-12 py-5 bg-white text-black rounded-full font-bold hover:scale-105 transition-all flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(255,255,255,0.1)] lemonsqueezy-button"
+                  >
+                    <ShoppingBag size={20} />
+                    {isFree ? 'DOWNLOAD NOW' : 'BUY NOW'}
+                  </button>
+
+                  {product.trialUrl && (
+                    <a
+                      href={product.trialUrl}
+                      className="px-10 py-5 bg-white text-black rounded-full font-bold hover:scale-105 transition-all flex items-center justify-center gap-3 text-center shadow-[0_0_30px_rgba(255,255,255,0.1)]"
+                    >
+                      DOWNLOAD TRIAL
+                    </a>
+                  )}
+                </div>
               </div>
 
 
@@ -244,13 +250,24 @@ export const ProductDetail = () => {
                   {product.fullDetails?.footerSubtext || 'Zero Latency • Instant Analysis • Free Forever'}
                 </p>
               </div>
-              <button
-                onClick={handleCheckout}
-                className="px-16 py-7 bg-white text-black rounded-full font-bold text-xl hover:scale-105 hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] transition-all flex items-center gap-4 group lemonsqueezy-button"
-              >
-                <ShoppingBag size={24} className="group-hover:rotate-12 transition-transform" />
-                {isFree ? 'DOWNLOAD NOW' : 'BUY / DOWNLOAD'}
-              </button>
+              <div className="flex flex-col sm:flex-row items-center gap-4">
+                <button
+                  onClick={handleCheckout}
+                  className="px-16 py-7 bg-white text-black rounded-full font-bold text-xl hover:scale-105 hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] transition-all flex items-center gap-4 group lemonsqueezy-button"
+                >
+                  <ShoppingBag size={24} className="group-hover:rotate-12 transition-transform" />
+                  {isFree ? 'DOWNLOAD NOW' : 'BUY NOW'}
+                </button>
+
+                {product.trialUrl && (
+                  <a
+                    href={product.trialUrl}
+                    className="px-12 py-7 bg-white text-black rounded-full font-bold text-lg hover:scale-105 transition-all flex items-center gap-3 shadow-[0_0_50px_rgba(255,255,255,0.1)]"
+                  >
+                    DOWNLOAD TRIAL
+                  </a>
+                )}
+              </div>
               <span className="text-[10px] font-mono text-white/20 uppercase pb-6">
                 Official Licensed Release
               </span>

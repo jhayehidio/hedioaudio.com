@@ -8,6 +8,8 @@
         "image": "/images/BoundaryEQ.png",
         "free": false,
         "lemonSqueezyUrl": "https://hedioaudio.lemonsqueezy.com/checkout/buy/04e14beb-1d52-4ff4-b20f-8b1257d45998?embed=1&discount=0",
+        "trialUrl": "https://hedioaudio.com/downloads/BoundaryEQ_v1.0.0.zip",
+        "category": "EQ",
         "createdAt": "2026-03-25T00:00:00Z",
         "fullDetails": {
             "tagline": "The Foundation of Your Mix.",
@@ -40,8 +42,8 @@
                 }
             ],
             "specs": {
-                "format": "VST3",
-                "formatDesc": "Compatible with ARA-enabled DAWs including Reaper, Cubase, and Fender Studio Pro. Also fully functional in non-ARA DAWs like Ableton and FL Studio via the integrated drag and drop engine.",
+                "format": "VST3 (Windows)",
+                "formatDesc": "Compatible with ARA-enabled DAWs including Reaper, Cubase, and Fender Studio Pro. Windows only for now.",
                 "fileSupport": "ARA 2.0",
                 "fileSupportDesc": "Full file scan for instant analysis."
             },
@@ -73,6 +75,7 @@
         "image": "/images/NoisyPlayer.png",
         "free": true,
         "lemonSqueezyUrl": "https://hedioaudio.lemonsqueezy.com/checkout/buy/54737ed0-a24a-4dad-8e7a-610351b3f4df?embed=1&discount=0",
+        "category": "UTILITY",
         "createdAt": "2026-03-01T00:00:00Z",
         "fullDetails": {
             "tagline": "Surgical EQ Matching. Zero Wait Time.",

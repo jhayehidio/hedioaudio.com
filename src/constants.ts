@@ -22,6 +22,7 @@ export interface Product {
   youtubeId?: string;
   createdAt?: string;
   licenses?: License[];
+  trialUrl?: string;
   fullDetails?: {
     tagline: string;
     about: string;
