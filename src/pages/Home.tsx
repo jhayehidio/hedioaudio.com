@@ -63,10 +63,10 @@ export const Home = () => {
   }).sort((a, b) => b.price - a.price);
 
   return (
-    <div className="pt-32">
+    <div className="pt-20">
       {/* Shop Section Preview - Now at Top */}
-      <section className="pb-24 max-w-7xl mx-auto px-6">
-        <div className="flex flex-col gap-12 mb-16 pt-12 border-t border-white/5">
+      <section className="pb-32 max-w-7xl mx-auto px-6">
+        <div className="flex flex-col gap-12 mb-16 pt-8 border-t border-white/5">
           {searchQuery && (
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 py-8 border-b border-white/5">
               <div className="text-[10px] font-mono text-white/60 uppercase tracking-widest bg-white/5 px-4 py-2 rounded-full border border-white/10">
