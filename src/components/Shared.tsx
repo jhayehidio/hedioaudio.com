@@ -74,7 +74,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
         <div className="absolute top-4 left-4">
           <span className="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/10 rounded-full text-[9px] font-mono tracking-[0.2em] uppercase text-white/70">
-            {product.type}
+            {product.category || product.type}
           </span>
         </div>
       </div>

@@ -16,12 +16,12 @@ const Hero = () => {
           muted
           loop
           playsInline
-          className="w-full h-full object-cover opacity-70"
+          className="w-full h-full object-cover opacity-50 blur-[2px]"
         />
 
         {/* Softer Blending Overlays */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,#050505_100%)] opacity-80" />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,#050505_100%)] opacity-80" />
+        <div className="absolute inset-0 bg-black/50" />
       </div>
 
       <div className="relative z-20 max-w-7xl mx-auto px-6 text-center">
