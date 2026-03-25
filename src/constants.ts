@@ -27,7 +27,15 @@ export interface Product {
     about: string;
     coreValue: string;
     features: { title: string; desc: string }[];
-    specs: { format: string; fileSupport: string; workflow: string };
+    specs: {
+      format: string;
+      formatDesc?: string;
+      fileSupport: string;
+      fileSupportDesc?: string;
+    };
+    workflowTitle?: string;
+    footerTagline?: string;
+    footerSubtext?: string;
     steps: { title: string; desc: string }[];
   };
 }

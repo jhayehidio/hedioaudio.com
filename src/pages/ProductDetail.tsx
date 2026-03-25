@@ -116,13 +116,11 @@ export const ProductDetail = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 py-10 border-y border-white/5">
-                {product.type !== 'beat' && (
-                  <div className="space-y-1">
-                    <span className="text-4xl font-display font-bold tracking-tight">
-                      {isFree ? 'FREE' : `$${currentPrice}`}
-                    </span>
-                  </div>
-                )}
+                <div className="space-y-1">
+                  <span className="text-4xl font-display font-bold tracking-tight">
+                    {isFree ? 'FREE' : `$${currentPrice}`}
+                  </span>
+                </div>
                 <button
                   onClick={handleCheckout}
                   className="px-12 py-5 bg-white text-black rounded-full font-bold hover:scale-105 transition-all flex items-center gap-3 shadow-[0_0_30px_rgba(255,255,255,0.1)] lemonsqueezy-button"
@@ -132,57 +130,7 @@ export const ProductDetail = () => {
                 </button>
               </div>
 
-              {/* Licenses and Terms for Beats (Inline with first sticky section) */}
-              {product.type === 'beat' && (
-                <div className="space-y-16">
-                  {product.licenses && (
-                    <div className="space-y-4 pt-8">
-                      <h3 className="text-xs font-mono tracking-[0.3em] text-muted uppercase mb-4">Available Licenses</h3>
-                      <div className="space-y-3">
-                        {product.licenses.map((license) => (
-                          <div
-                            key={license.name}
-                            className="w-full p-6 rounded-xl border border-white/5 bg-white/[0.02] text-left flex items-start gap-4 transition-colors hover:border-white/10"
-                          >
-                            <div className="flex-1">
-                              <div className="flex justify-between items-center mb-1">
-                                <span className="font-bold uppercase tracking-tight text-white/90">{license.name}</span>
-                                <span className="font-display font-bold text-xl text-white">${license.price}</span>
-                              </div>
-                              <div className="text-[10px] font-mono mb-3 text-white/40 uppercase tracking-widest">{license.features}</div>
-                              <p className="text-xs text-muted/70 leading-relaxed font-light">{license.description}</p>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
 
-                  <div className="space-y-4">
-                    <h3 className="text-xs font-mono tracking-[0.3em] text-muted uppercase mb-4">License Terms</h3>
-                    <div className="space-y-8 bg-white/[0.02] border border-white/5 p-8 rounded-2xl">
-                      <p className="text-sm text-muted/80 leading-relaxed italic">
-                        All purchases include a perpetual non-exclusive license and official license agreement.
-                        The beat remains owned by <span className="text-white">hedio</span>, but you have full creative rights within your chosen tier.
-                      </p>
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
-                        {[
-                          { label: "Credit", value: "Produced by hedio" },
-                          { label: "Delivery", value: "Instant download after purchase" },
-                          { label: "Usage", value: "Commercial rights included" },
-                          { label: "Validity", value: "License valid worldwide" }
-                        ].map((item) => (
-                          <div key={item.label} className="flex flex-col gap-1">
-                            <span className="text-[10px] font-mono text-white/30 uppercase tracking-widest">{item.label}</span>
-                            <span className="text-sm text-white/90">{item.value}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
             </motion.div>
           </div>
 
@@ -199,19 +147,7 @@ export const ProductDetail = () => {
                     loop
                     playsInline
                     className="w-full h-full object-cover pointer-events-none"
-                    onError={(e) => (e.currentTarget.style.display = 'none')}
                   />
-                  {/* Fallback specifically for NoisyPlayer if needed */}
-                  {product.id === 'noisyplayer' && (
-                    <video
-                      src="/videos/NoisyPlayer Core Value.mp4"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      className="w-full h-full object-cover pointer-events-none"
-                    />
-                  )}
                 </div>
 
                 <div className="space-y-16 order-2">
@@ -249,25 +185,14 @@ export const ProductDetail = () => {
                     loop
                     playsInline
                     className="w-full h-full object-cover pointer-events-none"
-                    onError={(e) => (e.currentTarget.style.display = 'none')}
                   />
-                  {product.id === 'noisyplayer' && (
-                    <video
-                      src="/videos/NoisyPlayer How It Works.mp4"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      className="w-full h-full object-cover pointer-events-none"
-                    />
-                  )}
                 </div>
 
                 <div className="space-y-16 order-2">
                   <div className="space-y-4">
                     <h3 className="text-xs font-mono tracking-[0.3em] text-white/40 uppercase">Workflow</h3>
                     <h2 className="text-4xl font-display font-bold tracking-tight">
-                      Match any reference in 3 steps.
+                      {product.fullDetails.workflowTitle || 'Match any reference in 3 steps.'}
                     </h2>
                   </div>
 
@@ -291,17 +216,13 @@ export const ProductDetail = () => {
                         <div className="space-y-2">
                           <span className="block text-[10px] font-mono text-white/30 uppercase tracking-widest">Format Compatibility</span>
                           <span className="text-lg text-white/90 font-display font-bold">{product.fullDetails.specs.format}</span>
-                          <p className="text-xs text-muted">Compatible with Windows DAWs including Ableton, FL Studio, and Reaper.</p>
+                          <p className="text-xs text-muted">{product.fullDetails.specs.formatDesc || 'Compatible with Windows DAWs.'}</p>
                         </div>
                         <div className="space-y-2 pt-8 border-t border-white/5">
-                          <span className="block text-[10px] font-mono text-white/30 uppercase tracking-widest">File Support</span>
+                          <span className="block text-[10px] font-mono text-white/30 uppercase tracking-widest">
+                            {product.id === 'boundary-eq' ? 'Protocol Support' : 'File Support'}
+                          </span>
                           <span className="text-lg text-white/90 font-display font-bold">{product.fullDetails.specs.fileSupport}</span>
-                          <p className="text-xs text-muted">Supports high-fidelity lossless formats for accurate frequency analysis.</p>
-                        </div>
-                        <div className="space-y-2 pt-8 border-t border-white/5">
-                          <span className="block text-[10px] font-mono text-white/30 uppercase tracking-widest">Optimized Workflow</span>
-                          <span className="text-lg text-white/90 font-display font-bold">Universal Match</span>
-                          <p className="text-xs text-muted">{product.fullDetails.specs.workflow}</p>
                         </div>
                       </div>
                     </div>
@@ -317,10 +238,10 @@ export const ProductDetail = () => {
             <div className="flex flex-col items-center gap-6 pt-10 pb-2 px-8 bg-gradient-to-b from-white/[0.02] to-transparent rounded-3xl border border-white/5">
               <div className="text-center space-y-3">
                 <h3 className="text-3xl font-display font-bold uppercase tracking-tight">
-                  {product.type === 'beat' ? 'Start your next hit.' : 'Your matching helper.'}
+                  {product.fullDetails?.footerTagline || 'Your matching helper.'}
                 </h3>
                 <p className="text-muted font-mono text-[10px] uppercase tracking-[0.4em]">
-                  {product.type === 'beat' ? 'Worldwide Rights • Immediate Delivery • Studio Quality' : 'Zero Latency • Instant Analysis • Free Forever'}
+                  {product.fullDetails?.footerSubtext || 'Zero Latency • Instant Analysis • Free Forever'}
                 </p>
               </div>
               <button

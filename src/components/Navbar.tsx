@@ -62,7 +62,6 @@ export const Navbar = () => {
         <div className="hidden md:flex items-center gap-12">
           {[
             { name: 'PLUGINS', path: '/plugins' },
-            { name: 'BEATS', path: '/beats' },
             { name: 'FREE', path: '/plugins?free=true' },
             { name: 'ABOUT', path: '/about' },
             { name: 'CONTACT', path: '/contact' }
@@ -137,7 +136,6 @@ export const Navbar = () => {
             <div className="px-6 py-8 flex flex-col gap-6">
               {[
                 { name: 'PLUGINS', path: '/plugins' },
-                { name: 'BEATS', path: '/beats' },
                 { name: 'FREE', path: '/plugins?free=true' },
                 { name: 'ABOUT', path: '/about' },
                 { name: 'CONTACT', path: '/contact' }

@@ -7,8 +7,24 @@ import { ProductCard, SectionHeader } from '../components/Shared';
 
 const Hero = () => {
   return (
-    <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
-      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+    <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
+      {/* Background Video */}
+      <div className="absolute inset-0 z-0 bg-bg">
+        <video
+          src="/videos/BoundaryEQ How It Works.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover opacity-70"
+        />
+
+        {/* Softer Blending Overlays */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,#050505_100%)] opacity-80" />
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
+
+      <div className="relative z-20 max-w-7xl mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -19,21 +35,14 @@ const Hero = () => {
             Create Faster.
           </h1>
           <p className="max-w-2xl mx-auto text-white/80 text-xl font-light leading-relaxed">
-            Intelligent audio tools to speed up your workflow. <br className="hidden md:block" />
-            Radio-ready beats for your next hit.
+            Intelligent audio tools designed to speed up your workflow and unlock professional results instantly.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 mb-4">
             <Link
               to="/plugins"
-              className="px-10 py-4 bg-white text-black rounded-full font-bold text-xs tracking-widest hover:scale-105 transition-all"
+              className="px-12 py-5 bg-white text-black rounded-full font-bold text-sm tracking-widest hover:scale-105 transition-all shadow-[0_0_30px_rgba(255,255,255,0.2)]"
             >
               EXPLORE PLUGINS
-            </Link>
-            <Link
-              to="/beats"
-              className="px-10 py-4 bg-white/5 border border-white/10 text-white rounded-full font-bold text-xs tracking-widest hover:bg-white/10 transition-all"
-            >
-              CHECK BEATS
             </Link>
           </div>
         </motion.div>
@@ -47,25 +56,11 @@ export const Home = () => {
   const searchQuery = searchParams.get('search') || '';
 
   const filteredProducts = PRODUCTS.filter(p => {
+    const isPlugin = p.type === 'plugin';
     const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       p.description.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesSearch;
-  }).sort((a, b) => {
-    // 1. Sort by type (Plugins first)
-    if (a.type !== b.type) {
-      return a.type === 'plugin' ? -1 : 1;
-    }
-
-    // 2. Both are Plugins: Sort by Price (Descending)
-    if (a.type === 'plugin') {
-      return b.price - a.price;
-    }
-
-    // 3. Both are Beats: Sort by Date Uploaded (Descending)
-    const dateA = new Date(a.createdAt || 0).getTime();
-    const bDateB = new Date(b.createdAt || 0).getTime();
-    return bDateB - dateA;
-  });
+    return isPlugin && matchesSearch;
+  }).sort((a, b) => b.price - a.price);
 
   return (
     <div className="pt-24">

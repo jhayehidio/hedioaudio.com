@@ -14,7 +14,7 @@ export const Footer = () => (
             <span className="font-display font-bold text-xl tracking-tighter uppercase">HedioAudio</span>
           </div>
           <p className="text-muted max-w-sm mb-8 font-light leading-relaxed">
-            Premium tools and beats for the modern creator.
+            Premium tools for the modern creator.
           </p>
           <div className="flex gap-4">
             {['INSTAGRAM', 'YOUTUBE'].map(social => (
@@ -31,7 +31,6 @@ export const Footer = () => (
             {[
               { name: 'Home', path: '/' },
               { name: 'Plugins', path: '/plugins' },
-              { name: 'Beats', path: '/beats' },
               { name: 'About', path: '/about' },
               { name: 'Contact', path: '/contact' }
             ].map(item => (

@@ -3,47 +3,63 @@
         "id": "boundary-eq",
         "name": "BoundaryEQ",
         "type": "plugin",
-        "description": "Professional linear-phase EQ with advanced spectral matching and zero-latency processing.",
-        "price": 49,
+        "description": "The zero-playback smart EQ that instantly scans your audio to lock in your frequency boundaries without the guesswork.",
+        "price": 29,
         "image": "/images/BoundaryEQ.png",
         "free": false,
         "lemonSqueezyUrl": "https://hedioaudio.lemonsqueezy.com/checkout/buy/04e14beb-1d52-4ff4-b20f-8b1257d45998?embed=1&discount=0",
-        "createdAt": "2026-03-24T00:00:00Z",
+        "createdAt": "2026-03-25T00:00:00Z",
         "fullDetails": {
-            "tagline": "The Last EQ You'll Ever Need.",
-            "about": "BoundaryEQ is a high-performance linear-phase equalizer designed for surgical precision and musical transparency. With advanced ARA support and a fluid vector-based UI, it brings professional-grade processing to your DAW.",
-            "coreValue": "Built for speed and accuracy, BoundaryEQ features a state-of-the-art spectral analysis engine that allows for instant visual feedback and precise frequency manipulation.",
+            "tagline": "The Foundation of Your Mix.",
+            "about": "The zero-playback smart EQ that instantly scans your audio to lock in your frequency boundaries without the guesswork.",
+            "coreValue": "In a traditional workflow, setting high-pass and low-pass filters is a manual, repetitive guessing game. BoundaryEQ changes the rules by using ARA 2.0 technology to scan your entire audio file the moment you insert the plugin. It identifies the root pitch and the highest useful harmonics instantly, snapping your filters to the optimal boundaries to ensure a clean, focused starting point before you even hit play.",
             "features": [
                 {
-                    "title": "ARA 2 Support",
-                    "desc": "Deep integration with modern DAWs for seamless audio editing and frequency analysis without the need for real-time playback."
+                    "title": "ARA 2.0 & Drag-and-Drop Integration",
+                    "desc": "Utilize the full power of ARA 2.0 for a total file scan in seconds. For non-ARA hosts, simply drag and drop your audio file directly into the UI for the same instant offline analysis."
                 },
                 {
-                    "title": "Linear Phase Engine",
-                    "desc": "Crystal clear frequency adjustments without any phase shift or pre-ringing artifacts."
+                    "title": "Intelligent Auto-Filtering",
+                    "desc": "The engine automatically calculates the \"Floor\" and \"Ceiling\" of your signal. It snaps a High-Pass filter to the lowest detected fundamental and a Low-Pass filter to the edge of the musical frequency range, instantly removing sub-rumble and top-end hiss."
                 },
                 {
-                    "title": "Smart Matching",
-                    "desc": "Instantly match the frequency curve of any reference track with the built-in matching algorithm."
+                    "title": "Four Specialized Detection Modes",
+                    "desc": "Tailor the analysis to your source material with four distinct algorithms: Standard, Loose, Tight, and Vocal. Each mode adjusts how the auto-filters prioritize the frequency profile to ensure the perfect focus for any track."
+                },
+                {
+                    "title": "Full-File Visualization",
+                    "desc": "Stop guessing where your filters should sit. The UI displays a static, full-file frequency profile that clearly highlights the root fundamental and the highest harmonics of your audio. Use this to instantly verify the auto-detection or to manually snap your boundaries with absolute confidence."
+                },
+                {
+                    "title": "Smart State Memory",
+                    "desc": "BoundaryEQ stays out of your way by remembering your last selected detection mode. Whether you prefer the Vocal or Tight algorithm, the plugin defaults to your favorite setting every time you load it, keeping your workflow consistent across every track."
+                },
+                {
+                    "title": "4-Band Professional EQ Suite",
+                    "desc": "Beyond the auto-boundaries, you have full control with four additional high-quality parametric bands. Toggle between Bell, Low-Shelf, and High-Shelf types with precise Q control and transparent processing for final tone shaping."
                 }
             ],
             "specs": {
-                "format": "VST3, AU, AAX",
-                "fileSupport": "Up to 384kHz Sample Rate",
-                "workflow": "Optimized for M1/M2 Mac and Windows 11."
+                "format": "VST3",
+                "formatDesc": "Compatible with ARA-enabled DAWs including Reaper, Cubase, and Fender Studio Pro. Also fully functional in non-ARA DAWs like Ableton and FL Studio via the integrated drag and drop engine.",
+                "fileSupport": "ARA 2.0",
+                "fileSupportDesc": "Full file scan for instant analysis."
             },
+            "workflowTitle": "Clean up your tracks in 3 steps.",
+            "footerTagline": "The Foundation of Your Mix.",
+            "footerSubtext": "Zero Real-Time Waiting • Intelligent Filtering • Pure Precision",
             "steps": [
                 {
-                    "title": "Analyze",
-                    "desc": "Drop the plugin on your track. BoundaryEQ immediately starts mapping the frequency spectrum in real-time."
+                    "title": "Scan Your Signal",
+                    "desc": "Insert BoundaryEQ on an ARA-enabled track or drag your audio file into the UI. The plugin immediately \"reads\" the frequency profile of the entire clip without requiring real-time playback."
                 },
                 {
-                    "title": "Sculpt",
-                    "desc": "Use the fluid multiband interface to apply surgical cuts or musical boosts with zero phase distortion."
+                    "title": "Snap the Boundaries",
+                    "desc": "Choose your Detection Mode. BoundaryEQ instantly sets your HPF and LPF to the optimal frequency range for that specific file, giving you a clean, usable signal in one click."
                 },
                 {
-                    "title": "Apply",
-                    "desc": "Lock in your settings and enjoy professional-grade clarity across the entire frequency range."
+                    "title": "Refine the Tone",
+                    "desc": "Use the 4-band parametric suite (Bell/Shelf) to make your final adjustments. Because your boundaries are already set, you’re starting with a signal that is already focused and ready for the mix."
                 }
             ]
         }
@@ -90,9 +106,13 @@
             ],
             "specs": {
                 "format": "VSTi (Virtual Instrument)",
+                "formatDesc": "Compatible with Windows DAWs including Ableton, FL Studio, and Reaper.",
                 "fileSupport": "WAV, AIFF, MP3",
-                "workflow": "Optimized for use with any EQ matching plugins."
+                "fileSupportDesc": "Supports high-fidelity lossless formats for accurate frequency analysis."
             },
+            "workflowTitle": "Match any reference in 3 steps.",
+            "footerTagline": "Your matching helper.",
+            "footerSubtext": "Zero Latency • Instant Analysis • Free Forever",
             "steps": [
                 {
                     "title": "Drop Your Reference",
@@ -108,49 +128,5 @@
                 }
             ]
         }
-    },
-    {
-        "id": "hb00001-glow",
-        "name": "Glow",
-        "type": "beat",
-        "description": "Synth Pop Type Beat, Taylor Swift Type Beat.",
-        "image": "/images/HB00001 Glow.png",
-        "category": "Synth Pop",
-        "price": 25,
-        "youtubeId": "_whI41Rk9v4",
-        "lemonSqueezyUrl": "https://hedioaudio.lemonsqueezy.com/checkout/buy/479bc737-eb3b-47b2-8ae2-b6de69dac4ea?embed=1",
-        "createdAt": "2026-03-15T00:00:00Z",
-        "licenses": [
-            {
-                "name": "Basic License",
-                "price": 25,
-                "features": "MP3 File Only",
-                "description": "Perfect for indie artists starting out. Includes full rights for up to 100,000 streams and 10,000 sales/downloads, plus unlimited live performances."
-            },
-            {
-                "name": "Premium License",
-                "price": 50,
-                "features": "WAV + MP3 Files",
-                "description": "High-quality audio and flexible usage. Includes rights for up to 500,000 streams, 50,000 sales/downloads, and unlimited performances."
-            },
-            {
-                "name": "Premium Plus License",
-                "price": 100,
-                "features": "WAV + MP3 + STEMS",
-                "description": "Full production flexibility with stems for mixing and arrangement. Includes up to 1,000,000 streams, 100,000 sales/downloads, and unlimited performances."
-            },
-            {
-                "name": "Unlimited License",
-                "price": 150,
-                "features": "WAV + MP3 + STEMS",
-                "description": "Total freedom. Unlimited streams, sales, and performances worldwide. Keep your creative control forever."
-            },
-            {
-                "name": "Free Download",
-                "price": 0,
-                "features": "Non-Commercial Use Only",
-                "description": "For writing, practice, and demo recording. Not for streaming, release, or monetization. Upgrade to a paid license for full rights."
-            }
-        ]
     }
 ]
