@@ -43,7 +43,7 @@
             ],
             "specs": {
                 "format": "VST3 (Windows)",
-                "formatDesc": "Compatible with ARA-enabled DAWs including Reaper, Cubase, and Fender Studio Pro. Windows only for now.",
+                "formatDesc": "Compatible with ARA-enabled DAWs including Reaper, Cubase, and Fender Studio Pro. Also fully functional in non-ARA DAWs like Ableton Live and FL Studio via the integrated drag-and-drop engine. Windows only for now.",
                 "fileSupport": "ARA 2.0",
                 "fileSupportDesc": "Full file scan for instant analysis."
             },
