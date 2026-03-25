@@ -63,7 +63,7 @@ export const Home = () => {
   }).sort((a, b) => b.price - a.price);
 
   return (
-    <div className="pt-40">
+    <div className="pt-32">
       {/* Shop Section Preview - Now at Top */}
       <section className="pb-24 max-w-7xl mx-auto px-6">
         <div className="flex flex-col gap-12 mb-16 pt-12 border-t border-white/5">
