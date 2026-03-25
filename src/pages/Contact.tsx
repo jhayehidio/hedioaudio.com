@@ -14,7 +14,7 @@ export const Contact = () => {
               />
             </div>
             <p className="text-muted text-lg font-light leading-relaxed mb-12 max-w-md">
-              Have questions about our plugins or need a custom license for a beat? Reach out and we'll get back to you within 24 hours.
+              Have questions or concerns about our plugins? Reach out and we'll get back to you within 24 hours.
             </p>
             <div className="space-y-8">
               <div>

@@ -32,9 +32,7 @@ export const About = () => {
             <p className="text-muted text-lg font-light leading-relaxed mb-8">
               HedioAudio is built on the idea that music production should be faster, easier, and more fun. We create smart plugins that eliminate the technical hurdles of production.
             </p>
-            <p className="text-muted text-lg font-light leading-relaxed mb-12">
-              Our beats collection focuses on high-quality piano ballads and pop instrumentals, providing the perfect foundation for your next radio-ready hit.
-            </p>
+
             <div className="grid grid-cols-2 gap-8 py-12 border-t border-white/10">
               <div>
                 <h4 className="font-mono text-xs tracking-widest text-white mb-4 uppercase">Founded</h4>

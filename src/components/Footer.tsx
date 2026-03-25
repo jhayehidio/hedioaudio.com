@@ -17,11 +17,12 @@ export const Footer = () => (
             Premium tools for the modern creator.
           </p>
           <div className="flex gap-4">
-            {['INSTAGRAM', 'YOUTUBE'].map(social => (
-              <a key={social} href="#" className="text-[10px] font-mono tracking-widest text-muted hover:text-white transition-colors">
-                {social}
-              </a>
-            ))}
+            <a href="#" className="text-[10px] font-mono tracking-widest text-muted hover:text-white transition-colors">
+              INSTAGRAM
+            </a>
+            <a href="https://www.youtube.com/@hedioaudio" target="_blank" rel="noopener noreferrer" className="text-[10px] font-mono tracking-widest text-muted hover:text-white transition-colors">
+              YOUTUBE
+            </a>
           </div>
         </div>
 
